@@ -1,0 +1,64 @@
+namespace Offsets
+{
+    _offset(Il2CppGetHandle, uint64_t, 0xd4c3cf0);
+    _offset(BaseNetworkable, uint64_t, 0xd1f19b0);
+    _offset(ListComponent_Projectile__c, uint64_t, 0xd1d87c0);
+
+    namespace Camera
+    {
+        _offset(Base, uint64_t, 0xd1d6830);
+        _offset(StaticOffset, uint64_t, 0xb8);
+        _offset(ObjectOffset, uint64_t, 0x50);
+        _offset(Offset, uint64_t, 0x10);
+    }
+
+    namespace BasePlayer
+    {
+        _offset(playerModel, uint64_t, 0x2b0);
+        _offset(clActiveItem, uint64_t, 0x4a0);
+        _offset(baseMovement, uint64_t, 0x358);
+        _offset(playerFlags, uint64_t, 0x5A8);
+        _offset(playerInput, uint64_t, 0x330);
+        _offset(_displayName, uint64_t, 0x570);
+        _offset(clothingMoveSpeedReduction, uint64_t, 0x688);
+    }
+
+    namespace PlayerModel
+    {
+        _offset(position, uint64_t, 0x1e8);
+    }
+
+    namespace BaseProjectile
+    {
+        _offset(heldentity, uint64_t, 0x228);
+        _offset(ItemDefinition, uint64_t, 0xC0);
+        _offset(RecoilProperties, uint64_t, 0x358);
+        _offset(primaryMagazine, uint64_t, 0x330);
+        _offset(aimSway, uint64_t, 0x1f8);
+        _offset(aimSwaySpeed, uint64_t, 0x204);
+        _offset(internalBurstFireRateScale, uint64_t, 0x398);
+    }
+
+    namespace BaseCombatEntity {
+        _offset(_health, uint64_t, 0x248);
+        _offset(_maxHealth, uint64_t, 0x24C);
+        _offset(lifestate, uint64_t, 0x23C);
+    }
+
+    namespace PlayerInventory
+    {
+        _offset(containerBelt, uint64_t, 0x38);
+        _offset(containerWear, uint64_t, 0x78);
+    }
+
+    namespace ItemContainer
+    {
+        _offset(itemList, uint64_t, 0x78);
+    }
+
+    namespace Item
+    {
+        _offset(uid, uint64_t, 0x48);
+        _offset(ItemDefinition, uint64_t, 0xC0);
+    }
+}
