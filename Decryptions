@@ -1,0 +1,67 @@
+inline uint64_t BaseNetworkable1(uint64_t address)
+{
+	uint64_t enc = driver->Read<uint64_t>(address + 0x18);
+	uint32_t* p = reinterpret_cast<uint32_t*>(&enc);
+
+	for (int i = 0; i < 2; ++i)
+	{
+		uint32_t v = p[i];
+
+		// ROL 15
+		v = (v << 15) | (v >> 17);
+
+		// add
+		v += 0xE5766956;
+
+		// ROL 6
+		v = (v << 6) | (v >> 26);
+
+		p[i] = v;
+	}
+
+	return Il2cppGetHandle(static_cast<uint32_t>(enc));
+}
+
+// Updated - BaseNetworkable::Decrypt2
+inline uint64_t BaseNetworkable2(uint64_t address)
+{
+	uint64_t enc = driver->Read<uint64_t>(address + 0x18);
+	uint32_t* p = reinterpret_cast<uint32_t*>(&enc);
+
+	for (int i = 0; i < 2; ++i)
+	{
+		uint32_t v = p[i];
+
+		// xor
+		v ^= 0x5923674C;
+
+		// rol 6
+		v = (v << 6) | (v >> 26);
+
+		// add
+		v += 0xA293B27A;
+
+		// rol 24
+		v = (v << 24) | (v >> 8);
+
+		p[i] = v;
+	}
+
+	return Il2cppGetHandle(static_cast<uint32_t>(enc));
+}
+
+int64_t decrypt_ClActive_data(int64_t encrypted_value) {
+	uint64_t encrypted = encrypted_value;
+	uint32_t* p = reinterpret_cast<uint32_t*>(&encrypted);
+
+	for (int i = 0; i < 2; ++i)
+	{
+		uint32_t v = p[i];
+		v -= 0x5599C7E9;
+		v = (v << 15) | (v >> 17); // rotate left 15
+		v -= 0x49685E78;
+		p[i] = v;
+	}
+
+	return encrypted;
+}
