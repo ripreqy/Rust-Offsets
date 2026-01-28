@@ -1,64 +1,200 @@
+#pragma once
+#include <cstdint>
+#define _offset(name, type, offset) inline constexpr type name = static_cast<type>(offset)
+
 namespace Offsets
 {
-    _offset(Il2CppGetHandle, uint64_t, 0xd4c3cf0);
-    _offset(BaseNetworkable, uint64_t, 0xd1f19b0);
+    _offset(Il2CppGetHandle, uint64_t, 0xD4EA260);
+    _offset(BaseNetworkable, uint64_t, 0xD19F4C8);
+    _offset(MainCamera, uint64_t, 0xD2099B0);
     _offset(ListComponent_Projectile__c, uint64_t, 0xd1d87c0);
+
+    namespace Chains
+    {
+        _offset(Camera, uint64_t, 0x70);
+        _offset(ClientEntities, uint64_t, 0x28);
+        _offset(EntityList, uint64_t, 0x10);
+        _offset(BufferList, uint64_t, 0x20);
+    }
 
     namespace Camera
     {
-        _offset(Base, uint64_t, 0xd1d6830);
-        _offset(StaticOffset, uint64_t, 0xb8);
-        _offset(ObjectOffset, uint64_t, 0x50);
+        _offset(Base, uint64_t, 0xD2099B0);
+        _offset(StaticOffset, uint64_t, 0xB8);
+        _offset(ObjectOffset, uint64_t, 0x70);
         _offset(Offset, uint64_t, 0x10);
     }
 
     namespace BasePlayer
     {
-        _offset(playerModel, uint64_t, 0x2b0);
-        _offset(clActiveItem, uint64_t, 0x4a0);
-        _offset(baseMovement, uint64_t, 0x358);
+        _offset(clActiveItem, uint64_t, 0x4A0);
+        _offset(playerModel, uint64_t, 0x600);
+        _offset(playerInventory, uint64_t, 0x2A8);
+        _offset(currentTeam, uint64_t, 0x470);
+        _offset(playerInput, uint64_t, 0x5D8);
         _offset(playerFlags, uint64_t, 0x5A8);
-        _offset(playerInput, uint64_t, 0x330);
         _offset(_displayName, uint64_t, 0x570);
+        _offset(modelState, uint64_t, 0x320);
+        _offset(baseMovement, uint64_t, 0x358);
         _offset(clothingMoveSpeedReduction, uint64_t, 0x688);
     }
 
-    namespace PlayerModel
+    namespace Model
     {
-        _offset(position, uint64_t, 0x1e8);
+        _offset(collision, uint64_t, 0x20);
+        _offset(rootBone, uint64_t, 0x28);
+        _offset(headBone, uint64_t, 0x30);
+        _offset(eyeBone, uint64_t, 0x38);
+        _offset(animator, uint64_t, 0x40);
+        _offset(skeleton, uint64_t, 0x48);
+        _offset(boneTransforms, uint64_t, 0x50);
+        _offset(boneNames, uint64_t, 0x58);
     }
 
-    namespace BaseProjectile
+    namespace ModelState
     {
-        _offset(heldentity, uint64_t, 0x228);
-        _offset(ItemDefinition, uint64_t, 0xC0);
-        _offset(RecoilProperties, uint64_t, 0x358);
-        _offset(primaryMagazine, uint64_t, 0x330);
-        _offset(aimSway, uint64_t, 0x1f8);
-        _offset(aimSwaySpeed, uint64_t, 0x204);
-        _offset(internalBurstFireRateScale, uint64_t, 0x398);
+        _offset(flags, uint64_t, 0x24);
     }
 
-    namespace BaseCombatEntity {
+    namespace BaseEntity
+    {
+        _offset(bounds, uint64_t, 0xA8);
+        _offset(model, uint64_t, 0xD0);
+    }
+
+    namespace BaseCombatEntity
+    {
         _offset(_health, uint64_t, 0x248);
         _offset(_maxHealth, uint64_t, 0x24C);
         _offset(lifestate, uint64_t, 0x23C);
     }
 
+    namespace PlayerModel
+    {
+        _offset(position, uint64_t, 0x1E8);
+        _offset(newVelocity, uint64_t, 0x20C);
+        _offset(visible, uint64_t, 0x25C);
+        _offset(isLocalPlayer, uint64_t, 0x269);
+    }
+
     namespace PlayerInventory
     {
-        _offset(containerBelt, uint64_t, 0x38);
+        _offset(containerBelt, uint64_t, 0x28);
+        _offset(containerMain, uint64_t, 0x58);
         _offset(containerWear, uint64_t, 0x78);
     }
 
     namespace ItemContainer
     {
-        _offset(itemList, uint64_t, 0x78);
+        _offset(itemList, uint64_t, 0x20);
+    }
+
+    namespace ItemDefinition
+    {
+        _offset(itemid, uint64_t, 0x20);
+        _offset(shortname, uint64_t, 0x28);
+        _offset(displayName, uint64_t, 0x40);
+        _offset(category, uint64_t, 0x58);
     }
 
     namespace Item
     {
-        _offset(uid, uint64_t, 0x48);
-        _offset(ItemDefinition, uint64_t, 0xC0);
+        _offset(uid, uint64_t, 0x40);
+        _offset(count, uint64_t, 0xD8);
+        _offset(heldEntity, uint64_t, 0x88);
+        _offset(ItemDefinition, uint64_t, 0x30);
+    }
+
+    namespace BaseProjectile
+    {
+        _offset(NoiseRadius, uint64_t, 0x2D8);
+        _offset(damageScale, uint64_t, 0x2DC);
+        _offset(distanceScale, uint64_t, 0x2E0);
+        _offset(projectileVelocityScale, uint64_t, 0x2E4);
+        _offset(automatic, uint64_t, 0x2E8);
+        _offset(usableByTurret, uint64_t, 0x2E9);
+        _offset(turretDamageScale, uint64_t, 0x2EC);
+        _offset(reloadTime, uint64_t, 0x328);
+        _offset(canUnloadAmmo, uint64_t, 0x32C);
+        _offset(primaryMagazine, uint64_t, 0x330);
+        _offset(fractionalReload, uint64_t, 0x338);
+        _offset(aimSway, uint64_t, 0x34C);
+        _offset(aimSwaySpeed, uint64_t, 0x350);
+        _offset(RecoilProperties, uint64_t, 0x358);
+        _offset(aimconeCurve, uint64_t, 0x360);
+        _offset(aimCone, uint64_t, 0x368);
+        _offset(hipAimCone, uint64_t, 0x36C);
+        _offset(aimconePenaltyPerShot, uint64_t, 0x370);
+        _offset(aimConePenaltyMax, uint64_t, 0x374);
+        _offset(stancePenaltyScale, uint64_t, 0x380);
+        _offset(hasADS, uint64_t, 0x384);
+        _offset(noAimingWhileCycling, uint64_t, 0x385);
+        _offset(manualCycle, uint64_t, 0x386);
+        _offset(isBurstWeapon, uint64_t, 0x38F);
+        _offset(internalBurstRecoilScale, uint64_t, 0x394);
+        _offset(internalBurstFireRateScale, uint64_t, 0x398);
+        _offset(internalBurstAimConeScale, uint64_t, 0x39C);
+        _offset(numShotsFired, uint64_t, 0x3A4);
+    }
+
+    namespace BowWeapon
+    {
+        _offset(attackReady, uint64_t, 0x410);
+        _offset(arrowBack, uint64_t, 0x414);
+        _offset(swapArrows, uint64_t, 0x418);
+        _offset(wasAiming, uint64_t, 0x420);
+    }
+
+    namespace Magazine
+    {
+        _offset(definition, uint64_t, 0x10);
+        _offset(capacity, uint64_t, 0x18);
+        _offset(contents, uint64_t, 0x1C);
+        _offset(ammoType, uint64_t, 0x20);
+    }
+
+    namespace HeldEntity
+    {
+        _offset(ownerItemUID, uint64_t, 0x220);
+        _offset(viewModel, uint64_t, 0x228);
+    }
+
+    namespace ViewModel
+    {
+        _offset(instance, uint64_t, 0x28);
+    }
+
+    namespace BaseViewModel
+    {
+        _offset(useViewModelCamera, uint64_t, 0x40);
+        _offset(model, uint64_t, 0x80);
+        _offset(ironSights, uint64_t, 0x90);
+        _offset(lower, uint64_t, 0xa0);
+        _offset(ViewmodelBob, uint64_t, 0xc8);
+        _offset(ViewmodelSway, uint64_t, 0xe0);
+        _offset(ViewmodelPunch, uint64_t, 0xe8);
+    }
+
+    namespace ViewmodelBob
+    {
+        _offset(bobSpeedWalk, uint64_t, 0x20);
+        _offset(bobSpeedRun, uint64_t, 0x24);
+        _offset(bobAmountWalk, uint64_t, 0x28);
+        _offset(bobAmountRun, uint64_t, 0x2c);
+        _offset(leftOffsetRun, uint64_t, 0x30);
+    }
+
+    namespace ViewmodelPunch
+    {
+        _offset(punchAmount, uint64_t, 0x34);
+        _offset(punchRecovery, uint64_t, 0x38);
+    }
+
+    namespace ViewmodelLower
+    {
+        _offset(lowerOnSprint, uint64_t, 0x20);
+        _offset(lowerWhenCantAttack, uint64_t, 0x21);
+        _offset(shouldLower, uint64_t, 0x28);
+        _offset(rotateAngle, uint64_t, 0x2c);
     }
 }
