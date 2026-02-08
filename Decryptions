@@ -6,10 +6,10 @@ private:
 		return (Value & (1 << BitPosition)) != 0;
 	}
 
-	uintptr_t Il2cppGetHandle(uint32_t ptr)
+	uintptr_t Il2cppGetHandle(int32_t ptr)
 	{
-		uint64_t rdi_1 = ptr >> 3;
-		uint64_t rcx_1 = (ptr & 7) - 1;
+		uint64_t rdi_1 = static_cast<uint32_t>(ptr) >> 3;
+		uint64_t rcx_1 = (static_cast<uint32_t>(ptr) & 7) - 1;
 		uint64_t baseAddr = globals.game_assembly + Offsets::Il2CppGetHandle + 0x28 * rcx_1;
 		uint32_t limit = driver->Read<uint32_t>(baseAddr + 0x10);
 		if (rdi_1 < limit) {
@@ -26,137 +26,168 @@ private:
 	}
 
 public:
-	uintptr_t get_component_by_index(uintptr_t game_object, int index)
+	// UPDATED 08/02/2026 - client_entities
+	inline uint64_t BaseNetworkable1(uint64_t address)
 	{
-		if (!game_object)
-			return NULL;
+		if (!address) return 0;
 
-		uintptr_t list = driver->Read<uintptr_t>(game_object + 0x30);
-		uintptr_t component = driver->Read<uintptr_t>(list + (0x10 * index + 0x8));
+		uint64_t rax = driver->Read<uint64_t>(address + 0x18);
+		uint64_t* rdx = &rax;
+		uint32_t r8d = 0x2;
+		uint32_t eax = 0, ecx = 0;
 
-		if (!component)
-			return NULL;
-
-		uintptr_t unk1 = driver->Read<uintptr_t>(component + 0x28);
-
-		if (unk1)
-			return unk1;
-
-		return NULL;
-	}
-
-	inline uint64_t BaseNetworkable1(uint64_t a1)
-	{
-		if (!driver->Read<uint8_t>(a1 + 0x10))
-		return driver->Read<uint64_t>(a1 + 0x18);
-
-		uint64_t val = driver->Read<uint64_t>(a1 + 0x18);
-		uint32_t* v = reinterpret_cast<uint32_t*>(&val);
-		uintptr_t base = 0x8428014;
-
-		for (int i = 0; i < 2; ++i)
-		{
-			uint32_t x = (v[i] - 1114193538) ^ 0xD9E92F37;
-			v[i] = base + ((x * 4) | (x >> 30));
-		}
-
-		return Il2cppGetHandle(static_cast<uint32_t>(val));
-	}
-
-
-	inline uint64_t BaseNetworkable2(uint64_t a1)
-	{
-		if (!driver->Read<uint8_t>(a1 + 0x10))
-	    return driver->Read<uint64_t>(a1 + 0x18);
-
-		uint64_t val = driver->Read<uint64_t>(a1 + 0x18);
-		uint32_t* v = reinterpret_cast<uint32_t*>(&val);
-		uintptr_t base = 0x25B8A5F + 1;
-
-		for (int i = 0; i < 2; ++i)
-		{
-			uint32_t x = (v[i] ^ 0x582F2D5A) - 1119612145;
-			v[i] = ((x << 30) | (x >> 2)) - static_cast<uint32_t>(base);
-		}
-
-		return Il2cppGetHandle(static_cast<uint32_t>(val));
-	}
-
-	inline uintptr_t decrypt_PlayerInventory(uintptr_t a1)
-	{
-		uint32_t r8d = 0, eax = 0, ecx = 0;
-		uintptr_t rax = driver->Read<uintptr_t>(a1 + 0x18);
-		uintptr_t* rdx = &rax;
-
-		r8d = 0x02;
 		do
 		{
-			ecx = *(uint32_t*)(rdx);
-			eax = *(uint32_t*)(rdx);
-			rdx = (uintptr_t*)((char*)rdx + 0x04);
-			eax <<= 0x03;
-			ecx >>= 0x1D;
-			ecx |= eax;
-			ecx += 0x1DC478D0;
-			eax = ecx;
-			ecx <<= 0x12;
-			eax >>= 0x0E;
-			eax |= ecx;
-			*((uint32_t*)rdx - 1) = eax;
-			r8d -= 0x01;
+			ecx = *(uint32_t*)rdx;
+			eax = *(uint32_t*)rdx;
+			rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+			ecx = ecx >> 0x1E;
+			eax = eax << 0x2;
+			eax = eax | ecx;
+			eax = eax + 0xC8DEBA95;
+			ecx = eax;
+			ecx = ecx >> 0x1E;
+			eax = eax * 4;
+			ecx = ecx | eax;
+			*(uint32_t*)((uint8_t*)rdx - 0x4) = ecx;
+			r8d = r8d - 0x1;
 		} while (r8d);
 
-		return Il2cppGetHandle(static_cast<uint32_t>(rax));
+		return Il2cppGetHandle(static_cast<int32_t>(rax));
 	}
 
+	// UPDATED 08/02/2026 - entity_list
+	inline uint64_t BaseNetworkable2(uint64_t address)
+	{
+		if (!address) return 0;
+
+		uint64_t rax = driver->Read<uint64_t>(address + 0x18);
+		uint64_t* rdx = &rax;
+		uint32_t r8d = 0x2;
+		uint32_t eax = 0, ecx = 0;
+
+		do
+		{
+			ecx = *(uint32_t*)rdx;
+			rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+			ecx = ecx + 0x3C4959DB;
+			ecx = ecx ^ 0xA791679B;
+			eax = ecx;
+			ecx = ecx << 0x4;
+			eax = eax >> 0x1C;
+			eax = eax | ecx;
+			*(uint32_t*)((uint8_t*)rdx - 0x4) = eax;
+			r8d = r8d - 0x1;
+		} while (r8d);
+
+		return Il2cppGetHandle(static_cast<int32_t>(rax));
+	}
+
+	// UPDATED 08/02/2026 - cl_active_item
+	inline uint64_t decrypt_ClActive_data(uint64_t address)
+	{
+		uint64_t rsp = address;
+		uint64_t* rdx = &rsp;
+		uint32_t r8d = 0x2;
+		uint32_t eax = 0, ecx = 0;
+
+		do
+		{
+			ecx = *(uint32_t*)rdx;
+			rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+			ecx = ecx + 0x7EAEAE7E;
+			ecx = ecx ^ 0xE6CD779A;
+			eax = ecx;
+			ecx = ecx << 0x8;
+			eax = eax >> 0x18;
+			eax = eax | ecx;
+			eax = eax + 0x1152F40;
+			*(uint32_t*)((uint8_t*)rdx - 0x4) = eax;
+			r8d = r8d - 0x1;
+		} while (r8d);
+
+		return rsp;
+	}
+
+	// UPDATED 08/02/2026 - player_inventory
+	inline uintptr_t decrypt_PlayerInventory(uintptr_t address)
+	{
+		if (!address) return 0;
+
+		uint64_t rax = driver->Read<uint64_t>(address + 0x18);
+		if (!rax) return 0;
+
+		uint64_t* rdx = &rax;
+		uint32_t r8d = 0x2;
+		uint32_t eax = 0, ecx = 0;
+
+		do
+		{
+			ecx = *(uint32_t*)rdx;
+			eax = *(uint32_t*)rdx;
+			rdx = (uint64_t*)((uint8_t*)rdx + 0x4);
+			eax = eax << 0x13;
+			ecx = ecx >> 0xD;
+			ecx = ecx | eax;
+			ecx = ecx ^ 0xA99276E0;
+			eax = ecx;
+			ecx = ecx << 0x14;
+			eax = eax >> 0xC;
+			eax = eax | ecx;
+			*(uint32_t*)((uint8_t*)rdx - 0x4) = eax;
+			r8d = r8d - 0x1;
+		} while (r8d);
+
+		return Il2cppGetHandle(static_cast<int32_t>(rax));
+	}
+
+	// UPDATED 08/02/2026 - player_eyes
 	inline uintptr_t decrypt_PlayerEyes(uintptr_t a1)
 	{
-		uint32_t r8d = 0, eax = 0, ecx = 0;
-		uintptr_t rax = driver->Read<uintptr_t>(a1 + 0x18);
-		uintptr_t* rdx = &rax;
+		if (!a1) return 0;
 
-		r8d = 0x02;
-		do
-		{
-			ecx = *(uint32_t*)(rdx);
-			eax = *(uint32_t*)(rdx);
-			rdx = (uintptr_t*)((char*)rdx + 0x04);
-			eax <<= 0x1A;
-			ecx >>= 0x06;
-			ecx |= eax;
-			ecx += 0x25F24732;
-			eax = ecx;
-			ecx <<= 0x0A;
-			eax >>= 0x16;
-			eax |= ecx;
-			*((uint32_t*)rdx - 1) = eax;
-			r8d -= 0x01;
-		} while (r8d);
-
-		return Il2cppGetHandle(static_cast<uint32_t>(rax));
-	}
-
-	inline int64_t decrypt_ClActive_data(int64_t a1)
-	{
-		uint64_t val = static_cast<uint64_t>(a1);
-		uint32_t* v = reinterpret_cast<uint32_t*>(&val);
+		uint64_t encrypted = driver->Read<uint64_t>(a1 + 0x18);
+		uint32_t* p = reinterpret_cast<uint32_t*>(&encrypted);
 
 		for (int i = 0; i < 2; ++i)
 		{
-			uint32_t edx = v[i];
-			uint32_t ecx = v[i];
-			edx >>= 0x12;
-			ecx <<= 0x0E;
-			edx |= ecx;
-			edx += 0x2BEDE1C8;
-			edx ^= 0xF75406FA;
-			ecx = edx;
-			edx <<= 0x1E;
-			ecx >>= 0x02;
-			ecx |= edx;
-			v[i] = ecx;
+			uint32_t ecx = p[i];
+			uint32_t eax = p[i];
+			ecx >>= 0x1B;
+			eax <<= 0x05;
+			eax |= ecx;
+			eax ^= 0x4475E42F;
+			eax += 0x47C03DE1;
+			ecx = eax;
+			eax <<= 0x0B;
+			ecx >>= 0x15;
+			ecx |= eax;
+			p[i] = ecx;
 		}
 
-		return static_cast<int64_t>(val);
+		return Il2cppGetHandle(static_cast<int32_t>(encrypted));
+	}
+
+	// FOV encryption -> CREDITS TO AZEBAN
+	inline uint64_t encrypt_fov(float input)
+	{
+		uint64_t v1{};
+		uint32_t v0 = *(uint32_t*)&input;
+
+		v0 = ((v0 << 15) | (v0 >> 17)) + 756795125;
+		v0 = (v0 << 5) | (v0 >> 27);
+
+		*(uint32_t*)&v1 = v0;
+		return v1;
+	}
+
+	inline uint32_t decrypt_fov(uint64_t encrypted)
+	{
+		uint32_t v0 = static_cast<uint32_t>(encrypted);
+
+		v0 = ((v0 >> 5) | (v0 << 27)) - 756795125;
+		v0 = (v0 >> 15) | (v0 << 17);
+
+		return v0;
 	}
 } decryption;
