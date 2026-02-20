@@ -1,343 +1,272 @@
 #pragma once
-#include <cstdint>
-#define _offset(name, type, offset) inline constexpr type name = static_cast<type>(offset)
 
-SOME OFFSETS CAN BE WRONG NOT ALL TESTED! I EDIT IT LATER AGAIN
+#define C_ENGINE(name, type, offset) inline constexpr type name = static_cast<type>(offset)
 
 namespace Offsets
 {
+	C_ENGINE(Il2CppGetHandle, uint64_t, 0xDA461E0);
+	C_ENGINE(BaseNetworkable, uint64_t, 0xD735490);
+	C_ENGINE(ListComponent_Projectile__c, uint64_t, 0xD794B68);
 
-    _offset(Il2CppGetHandle, uint64_t, 0xDA54DD0);
-    _offset(BaseNetworkable, uint64_t, 0xD6FA178);
-    _offset(MainCamera, uint64_t, 0xD74AFE0);
-    _offset(Graphics, uint64_t, 0xD725700);
-    _offset(TodSky, uint64_t, 0xD70C110);
-    _offset(GameManager, uint64_t, 0xD76DB38);
-    _offset(ListComponent_Projectile__c, uint64_t, 0xD6F1350);
-    _offset(PlayerEyes_c, uint64_t, 0xD72A6E8);
+	namespace BaseNetworkableClass
+	{
+		C_ENGINE(static_fields, uint64_t, 0xB8);
+		C_ENGINE(wrapper_class_ptr, uint64_t, 0x18);
+		C_ENGINE(parent_static_fields, uint64_t, 0x10);
+		C_ENGINE(entity, uint64_t, 0x18);
 
-    namespace List
-    {
-        _offset(items, uint64_t, 0x10);
-        _offset(size, uint64_t, 0x18);
-        _offset(first_element, uint64_t, 0x20);
-    }
+		C_ENGINE(List, uint64_t, 0x10);
+		C_ENGINE(Count, uint64_t, 0x18);
+		C_ENGINE(prefabID, uint64_t, 0x30);
+		C_ENGINE(class_name, uint64_t, 0x10);
+	}
 
-    namespace ListComponent
-    {
-        _offset(internal_list, uint64_t, 0x18);
-    }
+	namespace Camera
+	{
+		C_ENGINE(Base, uint64_t, 0xD73AE70);
+		C_ENGINE(StaticOffset, uint64_t, 0xB8);
+		C_ENGINE(ObjectOffset, uint64_t, 0xA0);
+		C_ENGINE(Offset, uint64_t, 0x10);
+		C_ENGINE(ViewMatrix, uint64_t, 0x30C);
+	}
 
-    namespace Projectile
-    {
-        _offset(drag, uint64_t, 0x34);
-        _offset(gravityModifier, uint64_t, 0x38);
-        _offset(thickness, uint64_t, 0x3C);
-        _offset(owner, uint64_t, 0x1E0);
-        _offset(itemModProjectile, uint64_t, 0x110);
-    }
+	namespace ConvarGraphics
+	{
+		C_ENGINE(Base, uint64_t, 0xD7355E8);
+		C_ENGINE(fov, uint64_t, 0x45C);
+	}
 
-    namespace ItemModProjectile
-    {
-        _offset(projectileSpread, uint64_t, 0x3C);
-        _offset(projectileVelocity, uint64_t, 0x40);
-    }
+	namespace TodSky
+	{
+		C_ENGINE(Class, uint64_t, 0xD6DEAE0);
+		C_ENGINE(Instance, uint64_t, 0x60);
+		C_ENGINE(Deref1, uint64_t, 0x10);
+		C_ENGINE(Deref2, uint64_t, 0x20);
+		C_ENGINE(Cycle, uint64_t, 0x40);
+		C_ENGINE(Atmosphere, uint64_t, 0x48);
+		C_ENGINE(Day, uint64_t, 0x58);
+		C_ENGINE(Night, uint64_t, 0x60);
+		C_ENGINE(Stars, uint64_t, 0x68);
 
-    namespace Eoka
-    {
-        _offset(successFraction, uint64_t, 0x438);
-    }
+		namespace TOD_CycleParameters
+		{
+			C_ENGINE(Hour, uint64_t, 0x10);
+		}
 
-    namespace Chains
-    {
-        _offset(Camera, uint64_t, 0x80);
-        _offset(ClientEntities, uint64_t, 0x38);
-        _offset(EntityList, uint64_t, 0x10);
-        _offset(BufferList, uint64_t, 0x10);
+		namespace TOD_AtmosphereParameters
+		{
+			C_ENGINE(RayleighMultiplier, uint64_t, 0x10);
+			C_ENGINE(MieMultiplier, uint64_t, 0x14);
+			C_ENGINE(Brightness, uint64_t, 0x18);
+			C_ENGINE(Contrast, uint64_t, 0x1C);
+			C_ENGINE(Directionality, uint64_t, 0x20);
+			C_ENGINE(Fogginess, uint64_t, 0x24);
+		}
 
-        _offset(BaseNetworkable_Static, uint64_t, 0xB8);
-        _offset(BaseNetworkable_1, uint64_t, 0x38);
-        _offset(BaseNetworkable_2, uint64_t, 0x10);
-        _offset(BaseNetworkable_3, uint64_t, 0x10);
+		namespace TOD_DayParameters
+		{
+			C_ENGINE(LightColor, uint64_t, 0x10);
+			C_ENGINE(LightIntensity, uint64_t, 0x30);
+			C_ENGINE(SkyColor, uint64_t, 0x20);
+			C_ENGINE(SkyMultiplier, uint64_t, 0x34);
+			C_ENGINE(AmbientMultiplier, uint64_t, 0x3C);
+			C_ENGINE(ReflectionMultiplier, uint64_t, 0x40);
+		}
 
-        _offset(Camera_Static, uint64_t, 0xB8);
-        _offset(Camera_1, uint64_t, 0x80);
-        _offset(Camera_2, uint64_t, 0x10);
+		namespace TOD_NightParameters
+		{
+			C_ENGINE(LightColor, uint64_t, 0x10);
+			C_ENGINE(LightIntensity, uint64_t, 0x50);
+			C_ENGINE(SkyColor, uint64_t, 0x20);
+			C_ENGINE(SkyMultiplier, uint64_t, 0x54);
+			C_ENGINE(AmbientMultiplier, uint64_t, 0x58);
+			C_ENGINE(ReflectionMultiplier, uint64_t, 0x64);
+		}
 
-        _offset(TodSky_Instance, uint64_t, 0x60);
-        _offset(GameManager_1, uint64_t, 0x40);
-    }
+		namespace TOD_StarParameters
+		{
+			C_ENGINE(Size, uint64_t, 0x10);
+			C_ENGINE(Brightness, uint64_t, 0x14);
+		}
+	}
 
-    namespace Camera
-    {
-        _offset(Base, uint64_t, 0xD74AFE0);
-        _offset(StaticOffset, uint64_t, 0xB8);
-        _offset(ObjectOffset, uint64_t, 0x80);
-        _offset(Offset, uint64_t, 0x10);
-        _offset(Matrix, uint64_t, 0x30C);
-    }
+	namespace GameObject
+	{
+		C_ENGINE(Object, uint64_t, 0x10);
+		C_ENGINE(Transform, uint64_t, 0x30);
+		C_ENGINE(PrefabName, uint64_t, 0x60);
+	}
 
-    namespace ConvarGraphics
-    {
-        _offset(Base, uint64_t, 0xD725700);
-        _offset(Fov, uint64_t, 0x538);
-    }
+	namespace TransformChain
+	{
+		C_ENGINE(VisualState, uint64_t, 0x30);
+		C_ENGINE(StateData, uint64_t, 0x8);
+		C_ENGINE(TransformArray, uint64_t, 0x38);
+		C_ENGINE(Position, uint64_t, 0x90);
+	}
 
-    namespace GameManager
-    {
-        _offset(PrefabPoolCollection, uint64_t, 0x18);
-        _offset(StorageDictionary, uint64_t, 0x18);
-        _offset(StorageStackPoolable, uint64_t, 0x18);
-    }
+	namespace BasePlayer
+	{
+		C_ENGINE(playerModel, uint64_t, 0x2E8);
+		C_ENGINE(playerEyes, uint64_t, 0x2B8);
+		C_ENGINE(playerInventory, uint64_t, 0x328);
+		C_ENGINE(clActiveItem, uint64_t, 0x4D0);
+		C_ENGINE(baseMovement, uint64_t, 0x5B8);
+		C_ENGINE(playerFlags, uint64_t, 0x5E8);
+		C_ENGINE(playerInput, uint64_t, 0x6E0);
+		C_ENGINE(_displayName, uint64_t, 0x658);
+		C_ENGINE(clothingMoveSpeedReduction, uint64_t, 0x6C8);
+		C_ENGINE(lifestate, uint64_t, 0x258);
+		C_ENGINE(currentTeam, uint64_t, 0x4A0);
+		C_ENGINE(boneTransforms, uint64_t, 0x50);
+		C_ENGINE(steamid, uint64_t, 0x2D8);
+	}
 
-    namespace TodSky
-    {
-        _offset(NightParameters, uint64_t, 0x60);
-        _offset(DayParameters, uint64_t, 0x58);
-        _offset(AmbientParameters, uint64_t, 0x98);
-    }
+	namespace BaseMovement
+	{
+		C_ENGINE(TargetMovement, uint64_t, 0x3C);
+		C_ENGINE(GravityMultiplier, uint64_t, 0xA8);
+		C_ENGINE(GroundAngle, uint64_t, 0x100);
+		C_ENGINE(Grounded, uint64_t, 0x54);
+		C_ENGINE(Flying, uint64_t, 0x204);
+	}
 
-    namespace TodNightParameters
-    {
-        _offset(AmbientMultiplier, uint64_t, 0x5C);
-        _offset(LightIntensity, uint64_t, 0x50);
-    }
+	namespace PlayerModel
+	{
+		C_ENGINE(position, uint64_t, 0x1F8);
+	}
 
-    namespace TodDayParameters
-    {
-        _offset(AmbientMultiplier, uint64_t, 0x54);
-    }
+	namespace ModelState
+	{
+		C_ENGINE(Base, uint64_t, 0x628);
+		C_ENGINE(flags, uint64_t, 0x24);
+	}
 
-    namespace TodAmbientParameters
-    {
-        _offset(UpdateInterval, uint64_t, 0x18);
-    }
+	namespace Renderer
+	{
+		C_ENGINE(MaterialArray, uint64_t, 0x148);
+	}
 
-    namespace BasePlayer
-    {
-        _offset(clActiveItem, uint64_t, 0x4D0);
-        _offset(playerModel, uint64_t, 0x550);
-        _offset(playerEyes, uint64_t, 0x4D8);
-        _offset(playerInventory, uint64_t, 0x340);
-        _offset(currentTeam, uint64_t, 0x4A0);
-        _offset(playerInput, uint64_t, 0x2A0);
-        _offset(playerFlags, uint64_t, 0x5E8);
-        _offset(_displayName, uint64_t, 0x508);
-        _offset(modelState, uint64_t, 0x430);
-        _offset(baseMovement, uint64_t, 0x5E0);
-        _offset(clothingMoveSpeedReduction, uint64_t, 0x688);
-    }
+	namespace BaseCombatEntity
+	{
+		C_ENGINE(lifestate, uint64_t, 0x258);
+		C_ENGINE(_health, uint64_t, 0x264);
+		C_ENGINE(_maxHealth, uint64_t, 0x268);
+	}
 
-    namespace BaseNetworkableClass
-    {
-        _offset(static_fields, uint64_t, 0xB8);
-        _offset(wrapper_class_ptr, uint64_t, 0x38);
-        _offset(parent_static_fields, uint64_t, 0x10);
-        _offset(entity, uint64_t, 0x10);
-        _offset(List, uint64_t, 0x10);
-        _offset(Count, uint64_t, 0x18);
-        _offset(prefabID, uint64_t, 0x30);
-        _offset(class_name, uint64_t, 0x10);
-    }
+	namespace BaseEntity
+	{
+		C_ENGINE(bounds, uint64_t, 0xBC);
+		C_ENGINE(model, uint64_t, 0xE8);
+		C_ENGINE(SkinnedMultiMesh, uint64_t, 0x4B0);
+		C_ENGINE(skinnedMultiMeshRenderers, uint64_t, 0x58);
+	}
 
-    namespace Model
-    {
-        _offset(collision, uint64_t, 0x20);
-        _offset(rootBone, uint64_t, 0x28);
-        _offset(headBone, uint64_t, 0x30);
-        _offset(eyeBone, uint64_t, 0x38);
-        _offset(animator, uint64_t, 0x40);
-        _offset(skeleton, uint64_t, 0x48);
-        _offset(boneTransforms, uint64_t, 0x50);
-        _offset(boneNames, uint64_t, 0x58);
-    }
+	namespace PlayerInventory
+	{
+		C_ENGINE(containerBelt, uint64_t, 0x28);
+		C_ENGINE(containerMain, uint64_t, 0x38);
+		C_ENGINE(containerWear, uint64_t, 0x78);
+	}
 
-    namespace ModelState
-    {
-        _offset(flags, uint64_t, 0x24);
-    }
+	namespace Item
+	{
+		C_ENGINE(uid, uint64_t, 0x40);
+		C_ENGINE(amount, uint64_t, 0x4C);
+		C_ENGINE(heldEntity, uint64_t, 0xD8);
+		C_ENGINE(ItemDefinition, uint64_t, 0xC8);
+		C_ENGINE(itemMod, uint64_t, 0x190);
+		C_ENGINE(entityRef_entity, uint64_t, 0x10);
+	}
 
-    namespace BaseEntity
-    {
-        _offset(bounds, uint64_t, 0xBC);
-        _offset(model, uint64_t, 0xE8);
-        _offset(SkinnedMultiMesh, uint64_t, 0x168);
-    }
+	namespace ItemContainer
+	{
+		C_ENGINE(itemList, uint64_t, 0x50);
+	}
 
-    namespace SkinnedMultiMesh
-    {
-        _offset(SkinnedRenderer, uint64_t, 0x58);
-    }
+	namespace ItemDefinition
+	{
+		C_ENGINE(itemid, uint64_t, 0x20);
+		C_ENGINE(shortname, uint64_t, 0x28);
+		C_ENGINE(displayName, uint64_t, 0x40);
+		C_ENGINE(category, uint64_t, 0x58);
+		C_ENGINE(legacyEnglish, uint64_t, 0x20);
+		C_ENGINE(legacyEnglish2, uint64_t, 0x18);
+	}
 
-    namespace BaseCombatEntity
-    {
-        _offset(_health, uint64_t, 0x264);
-        _offset(_maxHealth, uint64_t, 0x268);
-        _offset(lifestate, uint64_t, 0x258);
-    }
+	namespace BaseProjectile
+	{
+		C_ENGINE(heldentity, uint64_t, 0xD8);
+		C_ENGINE(ItemDefinition, uint64_t, 0xC8);
+		C_ENGINE(RecoilProperties, uint64_t, 0x380);
+		C_ENGINE(primaryMagazine, uint64_t, 0x358);
+		C_ENGINE(reloadTime, uint64_t, 0x350);
+		C_ENGINE(aimSway, uint64_t, 0x378);
+		C_ENGINE(aimSwaySpeed, uint64_t, 0x37C);
+		C_ENGINE(internalBurstFireRateScale, uint64_t, 0x3C0);
+		C_ENGINE(automatic, uint64_t, 0x310);
+		C_ENGINE(noHeadshots, uint64_t, 0x2BE);
+		C_ENGINE(deployDelay, uint64_t, 0x268);
+		C_ENGINE(repeatDelay, uint64_t, 0x26C);
+		C_ENGINE(successFraction, uint64_t, 0x438);
+		C_ENGINE(canChangeFireModes, uint64_t, 0x3B8);
+		C_ENGINE(isBurstWeapon, uint64_t, 0x3B7);
+		C_ENGINE(ammoType, uint64_t, 0x20);
+		C_ENGINE(fractionalReload, uint64_t, 0x360);
+		C_ENGINE(numShotsFired, uint64_t, 0x3CC);
+		C_ENGINE(aimconeCurve, uint64_t, 0x360);
+		C_ENGINE(aimCone, uint64_t, 0x368);
+		C_ENGINE(hipAimCone, uint64_t, 0x36C);
+		C_ENGINE(aimconePenaltyPerShot, uint64_t, 0x370);
+		C_ENGINE(aimConePenaltyMax, uint64_t, 0x374);
+		C_ENGINE(stancePenaltyScale, uint64_t, 0x380);
 
-    namespace PlayerModel
-    {
-        _offset(position, uint64_t, 0x1F8);
-        _offset(newVelocity, uint64_t, 0x21C);
-        _offset(skinnedMultiMesh, uint64_t, 0x2A8);
-        _offset(visible, uint64_t, 0x26C);
-        _offset(isLocalPlayer, uint64_t, 0x279);
-        _offset(renderersList, uint64_t, 0x50);
-    }
+	}
 
-    namespace WorldItem
-    {
-        _offset(item, uint64_t, 0x1C8);
-    }
+	namespace BowWeapon
+	{
+		C_ENGINE(attackReady, uint64_t, 0x438);
+		C_ENGINE(arrowBack, uint64_t, 0x43c);
+		C_ENGINE(swapArrows, uint64_t, 0x418);
+		C_ENGINE(wasAiming, uint64_t, 0x420);
+	}
 
-    namespace PlayerInventory
-    {
-        _offset(containerBelt, uint64_t, 0x78);
-        _offset(containerMain, uint64_t, 0x30);
-        _offset(containerWear, uint64_t, 0x60);
-        _offset(containerBelt_alt1, uint64_t, 0x3D8);
-        _offset(containerBelt_alt2, uint64_t, 0x400);
-        _offset(containerBelt_alt3, uint64_t, 0x50);
-        _offset(containerBelt_alt4, uint64_t, 0xD0);
-    }
+	namespace Magazine
+	{
+		C_ENGINE(capacity, uint64_t, 0x18);
+		C_ENGINE(contents, uint64_t, 0x1C);
+	}
 
-    namespace ItemContainer
-    {
-        _offset(itemList, uint64_t, 0x40);
-    }
+	namespace RecoilProperties
+	{
+		C_ENGINE(recoilYawMin, uint64_t, 0x18);
+		C_ENGINE(recoilYawMax, uint64_t, 0x1C);
+		C_ENGINE(recoilPitchMin, uint64_t, 0x20);
+		C_ENGINE(recoilPitchMax, uint64_t, 0x24);
+		C_ENGINE(newRecoilOverride, uint64_t, 0x80);
+	}
 
-    namespace ItemDefinition
-    {
-        _offset(itemid, uint64_t, 0x20);
-        _offset(shortname, uint64_t, 0x28);
-        _offset(displayName, uint64_t, 0x40);
-        _offset(category, uint64_t, 0x58);
-    }
+	namespace Projectile
+	{
+		C_ENGINE(velocity, uint64_t, 0x3C);
+		C_ENGINE(spread, uint64_t, 0x38);
+		C_ENGINE(drag, uint64_t, 0x34);
+		C_ENGINE(gravityModifier, uint64_t, 0x38);
+		C_ENGINE(thickness, uint64_t, 0x3C);
+	}
 
-    namespace TranslatePhrase
-    {
-        _offset(english, uint64_t, 0x20);
-    }
+	namespace Corpse
+	{
+		C_ENGINE(parentName, uint64_t, 0x2C8);
+	}
 
-    namespace Item
-    {
-        _offset(uid, uint64_t, 0x58);
-        _offset(amount, uint64_t, 0x78);
-        _offset(heldEntity, uint64_t, 0x10);
-        _offset(heldEntity_alt, uint64_t, 0xA0);
-        _offset(ItemDefinition, uint64_t, 0x80);
-    }
+	namespace DroppedItem
+	{
+		C_ENGINE(item, uint64_t, 0x240);
+	}
 
-    namespace BaseProjectile
-    {
-        _offset(NoiseRadius, uint64_t, 0x300);
-        _offset(damageScale, uint64_t, 0x304);
-        _offset(distanceScale, uint64_t, 0x308);
-        _offset(projectileVelocityScale, uint64_t, 0x30C);
-        _offset(automatic, uint64_t, 0x310);
-        _offset(usableByTurret, uint64_t, 0x311);
-        _offset(turretDamageScale, uint64_t, 0x314);
-        _offset(reloadTime, uint64_t, 0x350);
-        _offset(canUnloadAmmo, uint64_t, 0x354);
-        _offset(primaryMagazine, uint64_t, 0x358);
-        _offset(fractionalReload, uint64_t, 0x360);
-        _offset(aimSway, uint64_t, 0x378);
-        _offset(aimSwaySpeed, uint64_t, 0x37C);
-        _offset(RecoilProperties, uint64_t, 0x380);
-        _offset(aimconeCurve, uint64_t, 0x388);
-        _offset(aimCone, uint64_t, 0x390);
-        _offset(hipAimCone, uint64_t, 0x394);
-        _offset(aimconePenaltyPerShot, uint64_t, 0x398);
-        _offset(aimConePenaltyMax, uint64_t, 0x39C);
-        _offset(stancePenaltyScale, uint64_t, 0x3A8);
-        _offset(hasADS, uint64_t, 0x3AC);
-        _offset(noAimingWhileCycling, uint64_t, 0x3AD);
-        _offset(manualCycle, uint64_t, 0x3AE);
-        _offset(aiming, uint64_t, 0x3B6);
-        _offset(isBurstWeapon, uint64_t, 0x3B7);
-        _offset(internalBurstRecoilScale, uint64_t, 0x3BC);
-        _offset(internalBurstFireRateScale, uint64_t, 0x3C0);
-        _offset(internalBurstAimConeScale, uint64_t, 0x3C4);
-        _offset(numShotsFired, uint64_t, 0x3CC);
-        _offset(sightAimConeScale, uint64_t, 0x3EC);
-        _offset(hipAimConeScale, uint64_t, 0x3F0);
-        _offset(viewModel, uint64_t, 0x250);
-    }
-
-    namespace ViewModel
-    {
-        _offset(instance, uint64_t, 0x28);
-    }
-
-    namespace BaseViewModel
-    {
-        _offset(useViewModelCamera, uint64_t, 0x40);
-        _offset(model, uint64_t, 0x80);
-        _offset(ironSights, uint64_t, 0xC0);
-        _offset(lower, uint64_t, 0xA0);
-        _offset(ViewmodelBob, uint64_t, 0xC8);
-        _offset(ViewmodelSway, uint64_t, 0xE0);
-        _offset(ViewmodelPunch, uint64_t, 0xE8);
-    }
-
-    namespace IronSights
-    {
-        _offset(zoomFactor, uint64_t, 0x2C);
-        _offset(ironSightsOverride, uint64_t, 0x68);
-    }
-
-    namespace RecoilProperties
-    {
-        _offset(recoilYawMin, uint64_t, 0x18);
-        _offset(recoilYawMax, uint64_t, 0x1C);
-        _offset(recoilPitchMin, uint64_t, 0x20);
-        _offset(recoilPitchMax, uint64_t, 0x24);
-        _offset(newRecoilOverride, uint64_t, 0x80);
-    }
-
-    namespace BowWeapon
-    {
-        _offset(attackReady, uint64_t, 0x438);
-        _offset(arrowBack, uint64_t, 0x43C);
-        _offset(swapArrows, uint64_t, 0x440);
-        _offset(wasAiming, uint64_t, 0x448);
-    }
-
-    namespace Magazine
-    {
-        _offset(definition, uint64_t, 0x10);
-        _offset(capacity, uint64_t, 0x18);
-        _offset(contents, uint64_t, 0x1C);
-        _offset(ammoType, uint64_t, 0x20);
-    }
-
-    namespace HeldEntity
-    {
-        _offset(ownerItemUID, uint64_t, 0x220);
-        _offset(viewModel, uint64_t, 0x228);
-    }
-
-    namespace ViewmodelBob
-    {
-        _offset(bobSpeedWalk, uint64_t, 0x20);
-        _offset(bobSpeedRun, uint64_t, 0x24);
-        _offset(bobAmountWalk, uint64_t, 0x28);
-        _offset(bobAmountRun, uint64_t, 0x2C);
-        _offset(leftOffsetRun, uint64_t, 0x30);
-    }
-
-    namespace ViewmodelPunch
-    {
-        _offset(punchAmount, uint64_t, 0x34);
-        _offset(punchRecovery, uint64_t, 0x38);
-    }
-
-    namespace ViewmodelLower
-    {
-        _offset(lowerOnSprint, uint64_t, 0x20);
-        _offset(lowerWhenCantAttack, uint64_t, 0x21);
-        _offset(shouldLower, uint64_t, 0x28);
-        _offset(rotateAngle, uint64_t, 0x2C);
-    }
+	namespace WorldItem
+	{
+		C_ENGINE(item, uint64_t, 0x1B0);
+	}
 }
