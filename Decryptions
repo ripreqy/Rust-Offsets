@@ -102,3 +102,27 @@ inline uintptr_t decrypt_PlayerEyes(uintptr_t a1)
 	} // sub r8d, 1 | jnz loop
 	return Il2cppGetHandle(static_cast<int32_t>(rax));
 }
+
+// [CE] FOV decrypt (auto-generated)
+// Date: 2026-04-04 | Source: sub_184DF3AB0
+// Encrypt: rol 30 -> sub 0x4C364ABC -> xor 0x320F3D0E
+// Decrypt: xor 0x320F3D0E -> add 0x4C364ABC -> rol 2
+inline float decrypt_fov(uintptr_t a1)
+{
+	std::uint32_t eax = static_cast<std::uint32_t>(a1); // mov eax, [rdx]
+	eax ^= 0x320F3D0Eu; // xor ecx, 0x320F3D0E
+	eax += 0x4C364ABCu; // add ecx, 0x4C364ABC (reverse of sub)
+	eax = (eax << 2) | (eax >> 30); // shl eax,2 | shr ecx,30 | or ecx,eax => ROL 2
+	return *(float*)&eax;
+}
+
+// [CE] FOV encrypt (auto-generated)
+// Sequence: rol 30 -> sub 0x4C364ABC -> xor 0x320F3D0E
+inline uint32_t encrypt_fov(float a1)
+{
+	std::uint32_t eax = std::bit_cast<std::uint32_t>(a1); // mov eax, float
+	eax = (eax << 30) | (eax >> 2); // shl eax,30 | shr ecx,2 | or ecx,eax => ROL 30
+	eax -= 0x4C364ABCu; // sub ecx, 0x4C364ABC
+	eax ^= 0x320F3D0Eu; // xor ecx, 0x320F3D0E
+	return eax;
+}
