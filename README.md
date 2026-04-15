@@ -1,5 +1,3 @@
- # Rust-Offsets
+# Rust Offsets by reqy 
 
-If you need more Offsets or Decryptions join my Discord <3 
-https://discord.gg/code-engine  
-  
+If you need more Decryptions/Offsets feel free to join our discord gg/code-engine 
