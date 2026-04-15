@@ -4,16 +4,16 @@
 
 namespace Offsets
 {
-	C_ENGINE(Il2CppGetHandle, uint64_t, 0xE814D80);
-	C_ENGINE(BaseNetworkable, uint64_t, 0xE472038);
-	C_ENGINE(ListComponent_Projectile__c, uint64_t, 0xE4B1C58);
+	C_ENGINE(Il2CppGetHandle, uint64_t, 0xE711EE0);
+	C_ENGINE(BaseNetworkable, uint64_t, 0xe3d0568);
+	C_ENGINE(ListComponent_Projectile__c, uint64_t, 0xE4079F8);
 
 	namespace BaseNetworkableClass
 	{
 		C_ENGINE(static_fields, uint64_t, 0xb8);
-		C_ENGINE(wrapper_class_ptr, uint64_t, 0x28);
+		C_ENGINE(wrapper_class_ptr, uint64_t, 0x8);
 		C_ENGINE(parent_static_fields, uint64_t, 0x10);
-		C_ENGINE(entity, uint64_t, 0x10);
+		C_ENGINE(entity, uint64_t, 0x18);
 
 		C_ENGINE(List, uint64_t, 0x10);
 		C_ENGINE(Count, uint64_t, 0x18);
@@ -23,24 +23,24 @@ namespace Offsets
 
 	namespace Camera
 	{
-		C_ENGINE(Base, uint64_t, 0xE4BFE60);
-		C_ENGINE(StaticOffset, uint64_t, 0xb8);
-		C_ENGINE(ObjectOffset, uint64_t, 0x60);
+		C_ENGINE(Base, uint64_t, 0xE3DCE78);
+		C_ENGINE(StaticOffset, uint64_t, 0xB8);
+		C_ENGINE(ObjectOffset, uint64_t, 0xA0);
 		C_ENGINE(Offset, uint64_t, 0x10);
 		C_ENGINE(ViewMatrix, uint64_t, 0x30C);
 	}
 
 	namespace ConvarGraphics
 	{
-		C_ENGINE(Base, uint64_t, 0xE4E2C88);
-		C_ENGINE(fov, uint64_t, 0x1E4);
+		C_ENGINE(Base, uint64_t, 0xE37DE30);
+		C_ENGINE(fov, uint64_t, 0x200);
 	}
 
 	namespace TodSky
 	{
-		C_ENGINE(Class, uint64_t, 0xE480C68);
+		C_ENGINE(Class, uint64_t, 0xe330f48);
 		C_ENGINE(StaticFields, uint64_t, 0xB8);
-		C_ENGINE(Instance, uint64_t, 0x70);
+		C_ENGINE(Instance, uint64_t, 0x18);
 		C_ENGINE(Deref1, uint64_t, 0x10);
 		C_ENGINE(Deref2, uint64_t, 0x20);
 		C_ENGINE(Cycle, uint64_t, 0x40);
@@ -61,32 +61,31 @@ namespace Offsets
 			C_ENGINE(MieMultiplier, uint64_t, 0x14);
 			C_ENGINE(Brightness, uint64_t, 0x18);
 			C_ENGINE(Contrast, uint64_t, 0x1C);
-			C_ENGINE(Directionality, uint64_t, 0x20);
-			C_ENGINE(Fogginess, uint64_t, 0x24);
+			C_ENGINE(Directionality, uint64_t, 0x28);
+			C_ENGINE(Fogginess, uint64_t, 0x2C);
 		}
 
 		namespace TOD_DayParameters
 		{
-			C_ENGINE(LightColor, uint64_t, 0x10);
-			C_ENGINE(LightIntensity, uint64_t, 0x30);
+			C_ENGINE(LightColor, uint64_t, 0x18);
+			C_ENGINE(LightIntensity, uint64_t, 0x48);
 			C_ENGINE(SkyColor, uint64_t, 0x28);
-			C_ENGINE(SkyMultiplier, uint64_t, 0x34);
-			C_ENGINE(AmbientMultiplier, uint64_t, 0x3C);
-			C_ENGINE(ReflectionMultiplier, uint64_t, 0x40);
+			C_ENGINE(AmbientMultiplier, uint64_t, 0x54);
+			C_ENGINE(ReflectionMultiplier, uint64_t, 0x5C);
 		}
 
 		namespace TOD_NightParameters
 		{
 			C_ENGINE(MoonColor, uint64_t, 0x10);
-			C_ENGINE(LightColor, uint64_t, 0x18);
-			C_ENGINE(RayColor, uint64_t, 0x20);
-			C_ENGINE(SkyColor, uint64_t, 0x28);
-			C_ENGINE(CloudColor, uint64_t, 0x30);
-			C_ENGINE(FogColor, uint64_t, 0x38);
-			C_ENGINE(AmbientColor, uint64_t, 0x40);
+			C_ENGINE(LightColor, uint64_t, 0x20);
+			C_ENGINE(RayColor, uint64_t, 0x28);
+			C_ENGINE(SkyColor, uint64_t, 0x30);
+			C_ENGINE(CloudColor, uint64_t, 0x38);
+			C_ENGINE(FogColor, uint64_t, 0x40);
+			C_ENGINE(AmbientColor, uint64_t, 0x48);
 			C_ENGINE(LightIntensity, uint64_t, 0x50);
 			C_ENGINE(ShadowStrength, uint64_t, 0x58);
-			C_ENGINE(AmbientMultiplier, uint64_t, 0x60);
+			C_ENGINE(AmbientMultiplier, uint64_t, 0x5C);
 			C_ENGINE(ReflectionMultiplier, uint64_t, 0x64);
 		}
 
@@ -99,11 +98,11 @@ namespace Offsets
 		namespace TOD_MoonParameters
 		{
 			C_ENGINE(MeshSize, uint64_t, 0x10);
-			C_ENGINE(MeshBrightness, uint64_t, 0x14);
-			C_ENGINE(MeshContrast, uint64_t, 0x18);
-			C_ENGINE(HaloSize, uint64_t, 0x1C);
-			C_ENGINE(HaloBrightness, uint64_t, 0x20);
-			C_ENGINE(Position, uint64_t, 0x24);
+			C_ENGINE(MeshBrightness, uint64_t, 0x18);
+			C_ENGINE(MeshContrast, uint64_t, 0x20);
+			C_ENGINE(HaloSize, uint64_t, 0x24);
+			C_ENGINE(HaloBrightness, uint64_t, 0x28);
+			C_ENGINE(Position, uint64_t, 0x2C);
 		}
 
 		namespace TOD_CloudParameters
@@ -143,41 +142,41 @@ namespace Offsets
 
 	namespace BasePlayer
 	{
-		C_ENGINE(playerModel, uint64_t, 0x4A0);
-		C_ENGINE(playerEyes, uint64_t, 0x6F8);
-		C_ENGINE(playerInventory, uint64_t, 0x730);
+		C_ENGINE(playerModel, uint64_t, 0x6F8);
+		C_ENGINE(playerEyes, uint64_t, 0x670);
+		C_ENGINE(playerInventory, uint64_t, 0x460);
 		C_ENGINE(clActiveItem, uint64_t, 0x4E8);
-		C_ENGINE(baseMovement, uint64_t, 0x5A8);
+		C_ENGINE(baseMovement, uint64_t, 0x3A8);
 		C_ENGINE(playerFlags, uint64_t, 0x630);
-		C_ENGINE(playerInput, uint64_t, 0x440);
-		C_ENGINE(_displayName, uint64_t, 0x328);
+		C_ENGINE(playerInput, uint64_t, 0x588);
+		C_ENGINE(_displayName, uint64_t, 0x2D8);
 		C_ENGINE(clothingMoveSpeedReduction, uint64_t, 0x718);
 		C_ENGINE(lifestate, uint64_t, 0x270);
-		C_ENGINE(currentTeam, uint64_t, 0x4b8);
+		C_ENGINE(currentTeam, uint64_t, 0x4B8);
 		C_ENGINE(boneTransforms, uint64_t, 0x50);
 		C_ENGINE(steamid, uint64_t, 0x678);
 	}
 
 	namespace BaseMovement
 	{
-		C_ENGINE(TargetMovement, uint64_t, 0x3C);
-		C_ENGINE(GravityMultiplier, uint64_t, 0x10);
-		C_ENGINE(GroundAngle, uint64_t, 0x20);
+		C_ENGINE(TargetMovement, uint64_t, 0x30);
+		C_ENGINE(GravityMultiplier, uint64_t, 0x24);
+		C_ENGINE(GroundAngle, uint64_t, 0x58);
 		C_ENGINE(Grounded, uint64_t, 0x70);
-		C_ENGINE(Flying, uint64_t, 0x1B0);
+		C_ENGINE(Flying, uint64_t, 0x20);
 	}
 
 	namespace PlayerModel
 	{
 		C_ENGINE(position, uint64_t, 0x1F8);
-		C_ENGINE(inGesture, uint64_t, 0x290);
-		C_ENGINE(gestureConfig, uint64_t, 0x1f0);
+		C_ENGINE(inGesture, uint64_t, 0x388);
+		C_ENGINE(gestureConfig, uint64_t, 0x378);
 	}
 
 	namespace ModelState
 	{
-		C_ENGINE(Base, uint64_t, 0x4B8);
-		C_ENGINE(flags, uint64_t, 0x7C);
+		C_ENGINE(Base, uint64_t, 0x518);
+		C_ENGINE(flags, uint64_t, 0x58);
 	}
 
 	namespace Renderer
@@ -188,8 +187,8 @@ namespace Offsets
 	namespace BaseCombatEntity
 	{
 		C_ENGINE(lifestate, uint64_t, 0x270);
-		C_ENGINE(_health, uint64_t, 0x288);
-		C_ENGINE(_maxHealth, uint64_t, 0x28C);
+		C_ENGINE(_health, uint64_t, 0x27C);
+		C_ENGINE(_maxHealth, uint64_t, 0x280);
 	}
 
 	namespace BaseEntity
@@ -197,30 +196,30 @@ namespace Offsets
 		C_ENGINE(bounds, uint64_t, 0xC8);
 		C_ENGINE(model, uint64_t, 0xF0);
 		C_ENGINE(SkinnedMultiMesh, uint64_t, 0x280);
-		C_ENGINE(skinnedMultiMeshRenderers, uint64_t, 0x50);
+		C_ENGINE(skinnedMultiMeshRenderers, uint64_t, 0x40);
 	}
 
 	namespace PlayerInventory
 	{
 		C_ENGINE(containerBelt, uint64_t, 0x58);
-		C_ENGINE(containerMain, uint64_t, 0x78);
-		C_ENGINE(containerWear, uint64_t, 0x38);
+		C_ENGINE(containerMain, uint64_t, 0x30);
+		C_ENGINE(containerWear, uint64_t, 0x78);
 	}
 
 	namespace Item
 	{
-		C_ENGINE(uid, uint64_t, 0xA0);
-		C_ENGINE(amount, uint64_t, 0x6C);
-		C_ENGINE(heldEntity, uint64_t, 0x38);
-		C_ENGINE(heldEntity_2, uint64_t, 0x68);
-		C_ENGINE(ItemDefinition, uint64_t, 0x98);
-		C_ENGINE(itemMod, uint64_t, 0x170);
-		C_ENGINE(entityRef_entity, uint64_t, 0x10);
+		C_ENGINE(uid, uint64_t, 0x70);
+		C_ENGINE(amount, uint64_t, 0x64);
+		C_ENGINE(heldEntity, uint64_t, 0x50);
+		C_ENGINE(heldEntity_2, uint64_t, 0xA8);
+		C_ENGINE(ItemDefinition, uint64_t, 0xD0);
+		C_ENGINE(itemMod, uint64_t, 0xD8);
+		C_ENGINE(entityRef_entity, uint64_t, 0x20);
 	}
 
 	namespace ItemContainer
 	{
-		C_ENGINE(itemList, uint64_t, 0x70);
+		C_ENGINE(itemList, uint64_t, 0x40);
 	}
 
 	namespace ItemDefinition
@@ -236,7 +235,7 @@ namespace Offsets
 	namespace BaseProjectile
 	{
 		C_ENGINE(heldentity, uint64_t, 0x50);
-		C_ENGINE(ItemDefinition, uint64_t, 0xC8);
+		C_ENGINE(ItemDefinition, uint64_t, 0x448);
 		C_ENGINE(RecoilProperties, uint64_t, 0x3A8);
 		C_ENGINE(primaryMagazine, uint64_t, 0x380);
 		C_ENGINE(reloadTime, uint64_t, 0x378);
@@ -249,7 +248,7 @@ namespace Offsets
 		C_ENGINE(repeatDelay, uint64_t, 0x294);
 		C_ENGINE(projectileVelocityScale, uint64_t, 0x334);
 		C_ENGINE(successFraction, uint64_t, 0x458);
-		C_ENGINE(canChangeFireModes, uint64_t, 0x3D8);
+		C_ENGINE(canChangeFireModes, uint64_t, 0x3E0);
 		C_ENGINE(isBurstWeapon, uint64_t, 0x3DF);
 		C_ENGINE(ammoType, uint64_t, 0x20);
 		C_ENGINE(fractionalReload, uint64_t, 0x388);
@@ -267,8 +266,8 @@ namespace Offsets
 	namespace BowWeapon
 	{
 		C_ENGINE(attackReady, uint64_t, 0x460);
-		C_ENGINE(arrowBack, uint64_t, 0x45C);
-		C_ENGINE(swapArrows, uint64_t, 0x460);
+		C_ENGINE(arrowBack, uint64_t, 0x464);
+		C_ENGINE(swapArrows, uint64_t, 0x468);
 		C_ENGINE(wasAiming, uint64_t, 0x470);
 	}
 
@@ -298,22 +297,22 @@ namespace Offsets
 
 	namespace Corpse
 	{
-		C_ENGINE(parentName, uint64_t, 0x2F8);
+		C_ENGINE(parentName, uint64_t, 0x2B0);
 	}
 
 	namespace DroppedItem
 	{
-		C_ENGINE(item, uint64_t, 0x1E0);
+		C_ENGINE(item, uint64_t, 0x1E8);
 	}
 
 	namespace WorldItem
 	{
-		C_ENGINE(item, uint64_t, 0x1E0);
+		C_ENGINE(item, uint64_t, 0x1E8);
 	}
 
 	namespace HeldEntity
 	{
-		C_ENGINE(viewModel, uint64_t, 0x278);
+		C_ENGINE(viewModel, uint64_t, 0x268);
 	}
 
 	namespace PlayerEyes
@@ -330,7 +329,7 @@ namespace Offsets
 
 	namespace BaseViewModel
 	{
-		C_ENGINE(Class, uint64_t, 0xE3CB728);
+		C_ENGINE(Class, uint64_t, 0xE39B000);
 		C_ENGINE(instance, uint64_t, 0xA8);
 		C_ENGINE(animation_events, uint64_t, 0xA8);
 		C_ENGINE(targetEntity, uint64_t, 0x28);
