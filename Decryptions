@@ -1,7 +1,6 @@
-// [CE] client_entities — outer wrapper decrypt (auto-generated)
-// Date: 2026-04-04 | Source: store_function encrypt @ RVA 0xFD3830
-// Encrypt: xor 0x3F9BD761 -> rol 7 -> sub 0x5C42E53B -> xor 0x65A09A35
-// Decrypt: xor 0x65A09A35 -> add 0x5C42E53B -> rol 25 -> xor 0x3F9BD761
+// [CE] c_entities_func — wrapper decrypt (auto-generated)
+// Date: 2026-04-15 19:23 | Source: RVA 0x1108460
+// Sequence: xor edx, 0x93748B89 -> sub edx, 0x69346EA9 -> ROL 11
 inline uint64_t client_entities(uint64_t address)
 {
 	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
@@ -9,19 +8,18 @@ inline uint64_t client_entities(uint64_t address)
 	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
 	for (int i = 0; i < 2; ++i) { // mov r8d, 2
 		std::uint32_t eax = p[i]; // mov eax, [rdx]
-		eax ^= 0x65A09A35u; // xor eax, 0x65A09A35
-		eax += 0x5C42E53Bu; // add eax, 0x5C42E53B
-		std::uint32_t ecx = eax; // mov ecx, eax
-		eax = (eax << 25) | (ecx >> 7); // shl eax,25 | shr ecx,7 | or ecx,eax => ROL 25
-		eax ^= 0x3F9BD761u; // xor ecx, 0x3F9BD761
-		p[i] = eax; // mov [rdx-4], ecx
+		eax ^= 0x93748B89u; // xor edx, 0x93748B89
+		eax -= 0x69346EA9u; // sub edx, 0x69346EA9
+		std::uint32_t ecx = eax; // (for ROL)
+		eax = (eax << 11) | (ecx >> 21); // shl eax,11 | shr ecx,21 | or => ROL 11
+		p[i] = eax; // mov [rdx-4], eax
 	} // sub r8d, 1 | jnz loop
 	return Il2cppGetHandle(static_cast<int32_t>(rax));
 }
 
-// [CE] entity_list — inner wrapper decrypt (auto-generated)
-// Date: 2026-04-04 | Source: decrypt_handle @ RVA 0xF15C60
-// Sequence: xor 0x4C86033A -> rol 21 -> xor 0x796D87A0 -> add 0x29398717
+// [CE] DecryptEntityList_0 — wrapper decrypt (auto-generated)
+// Date: 2026-04-15 19:23 | Source: RVA 0x107B1C0
+// Sequence: xor eax, 0x6FF3D846 -> ROL 21 -> add ecx, 0x7B132AD0
 inline uint64_t entity_list(uint64_t address)
 {
 	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
@@ -29,100 +27,71 @@ inline uint64_t entity_list(uint64_t address)
 	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
 	for (int i = 0; i < 2; ++i) { // mov r8d, 2
 		std::uint32_t eax = p[i]; // mov eax, [rdx]
-		eax ^= 0x4C86033Au; // xor eax, 0x4C86033A
-		std::uint32_t ecx = eax; // mov ecx, eax
-		eax = (eax << 21) | (ecx >> 11); // shl eax,21 | shr ecx,11 | or ecx,eax => ROL 21
-		eax ^= 0x796D87A0u; // xor ecx, 0x796D87A0
-		eax += 0x29398717u; // add ecx, 0x29398717
-		p[i] = eax; // mov [rdx-4], ecx
+		eax ^= 0x6FF3D846u; // xor eax, 0x6FF3D846
+		std::uint32_t ecx = eax; // (for ROL)
+		eax = (eax << 21) | (ecx >> 11); // shl eax,21 | shr ecx,11 | or => ROL 21
+		eax += 0x7B132AD0u; // add ecx, 0x7B132AD0
+		p[i] = eax; // mov [rdx-4], eax
 	} // sub r8d, 1 | jnz loop
 	return Il2cppGetHandle(static_cast<int32_t>(rax));
 }
 
-// [CE] decrypt_ClActive_data — inline decrypt from GetHeldEntity (auto-generated)
-// Date: 2026-04-04 | Source: sub_1831E8750
-// Sequence: rol 5 -> add 0x718ABE44 -> rol 4 -> xor 0x5EC0AFBC
-// Note: no Il2cppGetHandle — returns raw decrypted value
+// [CE] DecryptClActiveItem — inline decrypt (auto-generated)
+// Date: 2026-04-15 19:23 | Source: RVA 0xC7102E, 0xC75936
+// Decrypt: sub 0x44519A01 -> xor 0x0EF6D88C -> ROL 11 -> sub 0x48BD351C
 inline uint64_t decrypt_ClActive_data(uint64_t raw_value)
 {
-	if (!raw_value) return 0; // test rax, rax | jz ret
-	std::uintptr_t rax = raw_value; // mov rax, raw_value
-	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
-	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov ecx, [rdx] | mov eax, [rdx]
-		std::uint32_t ecx = eax; // (duplicate load for rol)
-		eax = (eax << 5) | (ecx >> 27); // shl eax,5 | shr ecx,27 | or ecx,eax => ROL 5
-		eax += 0x718ABE44u; // add ecx, 0x718ABE44
-		ecx = eax; // mov eax, ecx
-		eax = (eax << 4) | (ecx >> 28); // shl ecx,4 | shr eax,28 | or eax,ecx => ROL 4
-		eax ^= 0x5EC0AFBCu; // xor eax, 0x5EC0AFBC
-		p[i] = eax; // mov [rdx-4], eax
-	} // sub r8d, 1 | jnz loop
-	return rax; // mov rax, [rsp+0x20] | ret
+	if (!raw_value) return 0;
+	std::uintptr_t rax = raw_value;
+	auto* p = reinterpret_cast<std::uint32_t*>(&rax);
+	for (int i = 0; i < 2; ++i) {
+		std::uint32_t eax = p[i];
+		eax -= 0x44519A01u;                // sub 0x44519A01
+		eax ^= 0xEF6D88Cu;               // xor 0x0EF6D88C
+		eax = (eax << 11) | (eax >> 21);   // ROL 11
+		eax -= 0x48BD351Cu;                // sub 0x48BD351C
+		p[i] = eax;
+	}
+	return rax;
 }
 
-// [CE] decrypt_PlayerInventory — wrapper decrypt (auto-generated)
-// Date: 2026-04-04 | Source: decrypt_handle @ RVA 0xE68EF0
-// Sequence: sub 0x45630844 -> xor 0x87D2FED9 -> rol 27
-inline uintptr_t decrypt_PlayerInventory(uintptr_t address)
+// [CE] decrypt_PlayerEyes — wrapper decrypt (auto-generated)
+// Date: 2026-04-15 19:23  | Source: RVA 0xE24E10
+// Sequence: ROL 11 -> sub ecx, 0x3BAD30FE -> xor ecx, 0x7790C0A0 -> add ecx, 0x6CE48E8B
+inline uint64_t decrypt_PlayerEyes(uint64_t address)
 {
-	if (!address) return 0; // test rcx, rcx | jz ret
 	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
 	if (!rax) return 0; // test rax, rax | jz ret
 	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
 	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov ecx, [rdx]
-		eax -= 0x45630844u; // sub ecx, 0x45630844
-		eax ^= 0x87D2FED9u; // xor ecx, 0x87D2FED9
-		std::uint32_t ecx = eax; // mov eax, ecx
-		eax = (eax << 27) | (ecx >> 5); // shl ecx,27 | shr eax,5 | or eax,ecx => ROL 27
+		std::uint32_t eax = p[i]; // mov eax, [rdx]
+		std::uint32_t ecx = eax; // (for ROL)
+		eax = (eax << 11) | (ecx >> 21); // shl eax,11 | shr ecx,21 | or => ROL 11
+		eax -= 0x3BAD30FEu; // sub ecx, 0x3BAD30FE
+		eax ^= 0x7790C0A0u; // xor ecx, 0x7790C0A0
+		eax += 0x6CE48E8Bu; // add ecx, 0x6CE48E8B
 		p[i] = eax; // mov [rdx-4], eax
 	} // sub r8d, 1 | jnz loop
 	return Il2cppGetHandle(static_cast<int32_t>(rax));
 }
 
-// [CE] decrypt_PlayerEyes — wrapper decrypt (auto-generated)
-// Date: 2026-04-04 | Source: decrypt_handle @ RVA 0xE689C0
-// Sequence: rol 27 -> add 0xF5DFD845 -> rol 8 -> xor 0xD984065A
-inline uintptr_t decrypt_PlayerEyes(uintptr_t a1)
+// [CE] DecryptActiveItem — inline decrypt (auto-generated)
+// Date: 2026-04-16 00:27 | Source: RVA 0xC7102E
+// Sequence: sub ecx, 0x44519A01 -> xor ecx, 0xEF6D88C -> ROL 11 -> sub eax, 0x48BD351C
+// Note: no Il2cppGetHandle — returns raw decrypted value
+inline uint64_t decrypt_PlayerInventory(uint64_t address)
 {
-	if (!a1) return 0; // test rcx, rcx | jz ret
-	std::uintptr_t rax = driver->Read<std::uintptr_t>(a1 + 0x18); // mov rax, [a1+0x18]
+	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
 	if (!rax) return 0; // test rax, rax | jz ret
 	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
 	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov ecx, [rdx] | mov eax, [rdx]
-		std::uint32_t ecx = eax; // (duplicate load for rol)
-		eax = (eax << 27) | (ecx >> 5); // shl eax,27 | shr ecx,5 | or ecx,eax => ROL 27
-		eax += 0xF5DFD845u; // add ecx, 0xF5DFD845
-		ecx = eax; // mov eax, ecx
-		eax = (eax << 8) | (ecx >> 24); // shl ecx,8 | shr eax,24 | or eax,ecx => ROL 8
-		eax ^= 0xD984065Au; // xor eax, 0xD984065A
+		std::uint32_t eax = p[i]; // mov eax, [rdx]
+		eax ^= 0x2B99655Bu; // xor eax, 0x2B99655B
+		eax += 0xC749C554u; // add eax, 0xC749C554
+		std::uint32_t ecx = eax; // (for ROL)
+		eax = (eax << 7) | (ecx >> 25); // shl eax,7 | shr ecx,25 | or => ROL 7
+		eax += 0x784A90B1u; // add ecx, 0x784A90B1
 		p[i] = eax; // mov [rdx-4], eax
 	} // sub r8d, 1 | jnz loop
 	return Il2cppGetHandle(static_cast<int32_t>(rax));
-}
-
-// [CE] FOV decrypt (auto-generated)
-// Date: 2026-04-04 | Source: sub_184DF3AB0
-// Encrypt: rol 30 -> sub 0x4C364ABC -> xor 0x320F3D0E
-// Decrypt: xor 0x320F3D0E -> add 0x4C364ABC -> rol 2
-inline float decrypt_fov(uintptr_t a1)
-{
-	std::uint32_t eax = static_cast<std::uint32_t>(a1); // mov eax, [rdx]
-	eax ^= 0x320F3D0Eu; // xor ecx, 0x320F3D0E
-	eax += 0x4C364ABCu; // add ecx, 0x4C364ABC (reverse of sub)
-	eax = (eax << 2) | (eax >> 30); // shl eax,2 | shr ecx,30 | or ecx,eax => ROL 2
-	return *(float*)&eax;
-}
-
-// [CE] FOV encrypt (auto-generated)
-// Sequence: rol 30 -> sub 0x4C364ABC -> xor 0x320F3D0E
-inline uint32_t encrypt_fov(float a1)
-{
-	std::uint32_t eax = std::bit_cast<std::uint32_t>(a1); // mov eax, float
-	eax = (eax << 30) | (eax >> 2); // shl eax,30 | shr ecx,2 | or ecx,eax => ROL 30
-	eax -= 0x4C364ABCu; // sub ecx, 0x4C364ABC
-	eax ^= 0x320F3D0Eu; // xor ecx, 0x320F3D0E
-	return eax;
 }
