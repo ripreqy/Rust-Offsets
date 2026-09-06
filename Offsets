@@ -1,337 +1,269 @@
-#pragma once
-
-#define C_ENGINE(name, type, offset) inline constexpr type name = static_cast<type>(offset)
-
-namespace Offsets
-{
-	C_ENGINE(Il2CppGetHandle, uint64_t, 0xE711EE0);
-	C_ENGINE(BaseNetworkable, uint64_t, 0xe3d0568);
-	C_ENGINE(ListComponent_Projectile__c, uint64_t, 0xE4079F8);
-
-	namespace BaseNetworkableClass
-	{
-		C_ENGINE(static_fields, uint64_t, 0xb8);
-		C_ENGINE(wrapper_class_ptr, uint64_t, 0x8);
-		C_ENGINE(parent_static_fields, uint64_t, 0x10);
-		C_ENGINE(entity, uint64_t, 0x18);
-
-		C_ENGINE(List, uint64_t, 0x10);
-		C_ENGINE(Count, uint64_t, 0x18);
-		C_ENGINE(prefabID, uint64_t, 0x30);
-		C_ENGINE(class_name, uint64_t, 0x10);
-	}
-
-	namespace Camera
-	{
-		C_ENGINE(Base, uint64_t, 0xE3DCE78);
-		C_ENGINE(StaticOffset, uint64_t, 0xB8);
-		C_ENGINE(ObjectOffset, uint64_t, 0xA0);
-		C_ENGINE(Offset, uint64_t, 0x10);
-		C_ENGINE(ViewMatrix, uint64_t, 0x30C);
-	}
-
-	namespace ConvarGraphics
-	{
-		C_ENGINE(Base, uint64_t, 0xE37DE30);
-		C_ENGINE(fov, uint64_t, 0x200);
-	}
-
-	namespace TodSky
-	{
-		C_ENGINE(Class, uint64_t, 0xe330f48);
-		C_ENGINE(StaticFields, uint64_t, 0xB8);
-		C_ENGINE(Instance, uint64_t, 0x18);
-		C_ENGINE(Deref1, uint64_t, 0x10);
-		C_ENGINE(Deref2, uint64_t, 0x20);
-		C_ENGINE(Cycle, uint64_t, 0x40);
-		C_ENGINE(Atmosphere, uint64_t, 0x50);
-		C_ENGINE(Day, uint64_t, 0x58);
-		C_ENGINE(Night, uint64_t, 0x60);
-		C_ENGINE(Stars, uint64_t, 0x78);
-		C_ENGINE(Ambient, uint64_t, 0x98);
-
-		namespace TOD_CycleParameters
-		{
-			C_ENGINE(Hour, uint64_t, 0x10);
-		}
-
-		namespace TOD_AtmosphereParameters
-		{
-			C_ENGINE(RayleighMultiplier, uint64_t, 0x10);
-			C_ENGINE(MieMultiplier, uint64_t, 0x14);
-			C_ENGINE(Brightness, uint64_t, 0x18);
-			C_ENGINE(Contrast, uint64_t, 0x1C);
-			C_ENGINE(Directionality, uint64_t, 0x28);
-			C_ENGINE(Fogginess, uint64_t, 0x2C);
-		}
-
-		namespace TOD_DayParameters
-		{
-			C_ENGINE(LightColor, uint64_t, 0x18);
-			C_ENGINE(LightIntensity, uint64_t, 0x48);
-			C_ENGINE(SkyColor, uint64_t, 0x28);
-			C_ENGINE(AmbientMultiplier, uint64_t, 0x54);
-			C_ENGINE(ReflectionMultiplier, uint64_t, 0x5C);
-		}
-
-		namespace TOD_NightParameters
-		{
-			C_ENGINE(MoonColor, uint64_t, 0x10);
-			C_ENGINE(LightColor, uint64_t, 0x20);
-			C_ENGINE(RayColor, uint64_t, 0x28);
-			C_ENGINE(SkyColor, uint64_t, 0x30);
-			C_ENGINE(CloudColor, uint64_t, 0x38);
-			C_ENGINE(FogColor, uint64_t, 0x40);
-			C_ENGINE(AmbientColor, uint64_t, 0x48);
-			C_ENGINE(LightIntensity, uint64_t, 0x50);
-			C_ENGINE(ShadowStrength, uint64_t, 0x58);
-			C_ENGINE(AmbientMultiplier, uint64_t, 0x5C);
-			C_ENGINE(ReflectionMultiplier, uint64_t, 0x64);
-		}
-
-		namespace TOD_AmbientParameters
-		{
-			C_ENGINE(Saturation, uint64_t, 0x14);
-			C_ENGINE(UpdateInterval, uint64_t, 0x18);
-		}
-
-		namespace TOD_MoonParameters
-		{
-			C_ENGINE(MeshSize, uint64_t, 0x10);
-			C_ENGINE(MeshBrightness, uint64_t, 0x18);
-			C_ENGINE(MeshContrast, uint64_t, 0x20);
-			C_ENGINE(HaloSize, uint64_t, 0x24);
-			C_ENGINE(HaloBrightness, uint64_t, 0x28);
-			C_ENGINE(Position, uint64_t, 0x2C);
-		}
-
-		namespace TOD_CloudParameters
-		{
-			C_ENGINE(Size, uint64_t, 0x10);
-			C_ENGINE(Opacity, uint64_t, 0x14);
-			C_ENGINE(Coverage, uint64_t, 0x18);
-			C_ENGINE(Sharpness, uint64_t, 0x1C);
-			C_ENGINE(Coloring, uint64_t, 0x20);
-			C_ENGINE(Attenuation, uint64_t, 0x24);
-			C_ENGINE(Saturation, uint64_t, 0x28);
-			C_ENGINE(Scattering, uint64_t, 0x2C);
-			C_ENGINE(Brightness, uint64_t, 0x30);
-		}
-
-		namespace TOD_StarParameters
-		{
-			C_ENGINE(Size, uint64_t, 0x10);
-			C_ENGINE(Brightness, uint64_t, 0x14);
-		}
-	}
-
-	namespace GameObject
-	{
-		C_ENGINE(Object, uint64_t, 0x10);
-		C_ENGINE(Transform, uint64_t, 0x30);
-		C_ENGINE(PrefabName, uint64_t, 0x60);
-	}
-
-	namespace TransformChain
-	{
-		C_ENGINE(VisualState, uint64_t, 0x38);
-		C_ENGINE(StateData, uint64_t, 0x8);
-		C_ENGINE(TransformArray, uint64_t, 0x38);
-		C_ENGINE(Position, uint64_t, 0x90);
-	}
-
-	namespace BasePlayer
-	{
-		C_ENGINE(playerModel, uint64_t, 0x6F8);
-		C_ENGINE(playerEyes, uint64_t, 0x670);
-		C_ENGINE(playerInventory, uint64_t, 0x460);
-		C_ENGINE(clActiveItem, uint64_t, 0x4E8);
-		C_ENGINE(baseMovement, uint64_t, 0x3A8);
-		C_ENGINE(playerFlags, uint64_t, 0x630);
-		C_ENGINE(playerInput, uint64_t, 0x588);
-		C_ENGINE(_displayName, uint64_t, 0x2D8);
-		C_ENGINE(clothingMoveSpeedReduction, uint64_t, 0x718);
-		C_ENGINE(lifestate, uint64_t, 0x270);
-		C_ENGINE(currentTeam, uint64_t, 0x4B8);
-		C_ENGINE(boneTransforms, uint64_t, 0x50);
-		C_ENGINE(steamid, uint64_t, 0x678);
-	}
-
-	namespace BaseMovement
-	{
-		C_ENGINE(TargetMovement, uint64_t, 0x30);
-		C_ENGINE(GravityMultiplier, uint64_t, 0x24);
-		C_ENGINE(GroundAngle, uint64_t, 0x58);
-		C_ENGINE(Grounded, uint64_t, 0x70);
-		C_ENGINE(Flying, uint64_t, 0x20);
-	}
-
-	namespace PlayerModel
-	{
-		C_ENGINE(position, uint64_t, 0x1F8);
-		C_ENGINE(inGesture, uint64_t, 0x388);
-		C_ENGINE(gestureConfig, uint64_t, 0x378);
-	}
-
-	namespace ModelState
-	{
-		C_ENGINE(Base, uint64_t, 0x518);
-		C_ENGINE(flags, uint64_t, 0x58);
-	}
-
-	namespace Renderer
-	{
-		C_ENGINE(MaterialArray, uint64_t, 0x148);
-	}
-
-	namespace BaseCombatEntity
-	{
-		C_ENGINE(lifestate, uint64_t, 0x270);
-		C_ENGINE(_health, uint64_t, 0x27C);
-		C_ENGINE(_maxHealth, uint64_t, 0x280);
-	}
-
-	namespace BaseEntity
-	{
-		C_ENGINE(bounds, uint64_t, 0xC8);
-		C_ENGINE(model, uint64_t, 0xF0);
-		C_ENGINE(SkinnedMultiMesh, uint64_t, 0x280);
-		C_ENGINE(skinnedMultiMeshRenderers, uint64_t, 0x40);
-	}
-
-	namespace PlayerInventory
-	{
-		C_ENGINE(containerBelt, uint64_t, 0x58);
-		C_ENGINE(containerMain, uint64_t, 0x30);
-		C_ENGINE(containerWear, uint64_t, 0x78);
-	}
-
-	namespace Item
-	{
-		C_ENGINE(uid, uint64_t, 0x70);
-		C_ENGINE(amount, uint64_t, 0x64);
-		C_ENGINE(heldEntity, uint64_t, 0x50);
-		C_ENGINE(heldEntity_2, uint64_t, 0xA8);
-		C_ENGINE(ItemDefinition, uint64_t, 0xD0);
-		C_ENGINE(itemMod, uint64_t, 0xD8);
-		C_ENGINE(entityRef_entity, uint64_t, 0x20);
-	}
-
-	namespace ItemContainer
-	{
-		C_ENGINE(itemList, uint64_t, 0x40);
-	}
-
-	namespace ItemDefinition
-	{
-		C_ENGINE(itemid, uint64_t, 0x20);
-		C_ENGINE(shortname, uint64_t, 0x28);
-		C_ENGINE(displayName, uint64_t, 0x40);
-		C_ENGINE(category, uint64_t, 0x58);
-		C_ENGINE(legacyEnglish, uint64_t, 0x20);
-		C_ENGINE(legacyEnglish2, uint64_t, 0x18);
-	}
-
-	namespace BaseProjectile
-	{
-		C_ENGINE(heldentity, uint64_t, 0x50);
-		C_ENGINE(ItemDefinition, uint64_t, 0x448);
-		C_ENGINE(RecoilProperties, uint64_t, 0x3A8);
-		C_ENGINE(primaryMagazine, uint64_t, 0x380);
-		C_ENGINE(reloadTime, uint64_t, 0x378);
-		C_ENGINE(aimSway, uint64_t, 0x3A0);
-		C_ENGINE(aimSwaySpeed, uint64_t, 0x3A4);
-		C_ENGINE(internalBurstFireRateScale, uint64_t, 0x3E8);
-		C_ENGINE(automatic, uint64_t, 0x338);
-		C_ENGINE(noHeadshots, uint64_t, 0x2E6);
-		C_ENGINE(deployDelay, uint64_t, 0x290);
-		C_ENGINE(repeatDelay, uint64_t, 0x294);
-		C_ENGINE(projectileVelocityScale, uint64_t, 0x334);
-		C_ENGINE(successFraction, uint64_t, 0x458);
-		C_ENGINE(canChangeFireModes, uint64_t, 0x3E0);
-		C_ENGINE(isBurstWeapon, uint64_t, 0x3DF);
-		C_ENGINE(ammoType, uint64_t, 0x20);
-		C_ENGINE(fractionalReload, uint64_t, 0x388);
-		C_ENGINE(numShotsFired, uint64_t, 0x3F4);
-		C_ENGINE(aimconeCurve, uint64_t, 0x3B0);
-		C_ENGINE(aimCone, uint64_t, 0x3B8);
-		C_ENGINE(hipAimCone, uint64_t, 0x3BC);
-		C_ENGINE(aimconePenaltyPerShot, uint64_t, 0x3C0);
-		C_ENGINE(aimConePenaltyMax, uint64_t, 0x3C4);
-		C_ENGINE(stancePenaltyScale, uint64_t, 0x3D0);
-		C_ENGINE(aimSightAimConeScale, uint64_t, 0x414);
-		C_ENGINE(hipAimConeScale, uint64_t, 0x41C);
-	}
-
-	namespace BowWeapon
-	{
-		C_ENGINE(attackReady, uint64_t, 0x460);
-		C_ENGINE(arrowBack, uint64_t, 0x464);
-		C_ENGINE(swapArrows, uint64_t, 0x468);
-		C_ENGINE(wasAiming, uint64_t, 0x470);
-	}
-
-	namespace Magazine
-	{
-		C_ENGINE(capacity, uint64_t, 0x18);
-		C_ENGINE(contents, uint64_t, 0x1C);
-	}
-
-	namespace RecoilProperties
-	{
-		C_ENGINE(recoilYawMin, uint64_t, 0x18);
-		C_ENGINE(recoilYawMax, uint64_t, 0x1C);
-		C_ENGINE(recoilPitchMin, uint64_t, 0x20);
-		C_ENGINE(recoilPitchMax, uint64_t, 0x24);
-		C_ENGINE(newRecoilOverride, uint64_t, 0x80);
-	}
-
-	namespace Projectile
-	{
-		C_ENGINE(velocity, uint64_t, 0x28);
-		C_ENGINE(spread, uint64_t, 0x38);
-		C_ENGINE(drag, uint64_t, 0x34);
-		C_ENGINE(gravityModifier, uint64_t, 0x38);
-		C_ENGINE(thickness, uint64_t, 0x3C);
-	}
-
-	namespace Corpse
-	{
-		C_ENGINE(parentName, uint64_t, 0x2B0);
-	}
-
-	namespace DroppedItem
-	{
-		C_ENGINE(item, uint64_t, 0x1E8);
-	}
-
-	namespace WorldItem
-	{
-		C_ENGINE(item, uint64_t, 0x1E8);
-	}
-
-	namespace HeldEntity
-	{
-		C_ENGINE(viewModel, uint64_t, 0x268);
-	}
-
-	namespace PlayerEyes
-	{
-		C_ENGINE(viewOffset, uint64_t, 0x40);
-		C_ENGINE(bodyRotation, uint64_t, 0x50);
-		C_ENGINE(headAngles, uint64_t, 0x60);
-	}
-
-	namespace PlayerInput
-	{
-		C_ENGINE(bodyAngles, uint64_t, 0x44);
-	}
-
-	namespace BaseViewModel
-	{
-		C_ENGINE(Class, uint64_t, 0xE39B000);
-		C_ENGINE(instance, uint64_t, 0xA8);
-		C_ENGINE(animation_events, uint64_t, 0xA8);
-		C_ENGINE(targetEntity, uint64_t, 0x28);
-	}
-}
+base_networkable_static = 0x119536D8
+main_camera_c = 0x1191DB58
+tod_sky_c = 0x119D0738
+local_player_type_info = 0x1198FC28
+base_player_typeinfo = 0x11999730
+BaseEntity = 0x11981CC0
+BaseCombatEntity = 0x119E4848
+BaseProjectile = 0x119E9418
+il2cpphandle = 0x11A88F30
+game_manager = 0x11866048
+item_icon_c = 0x11623CF0
+gc_handles::array_rva = 0x10C71E20
+physx_sdk::global_ptr_rva = 0x217A7E8
+projectile_list::klass_rva = 0xFBDB350
+ 
+static_fields = 0xB8
+wrapper_class_ptr = 0x8
+parent_off = 0x58
+name_ptr = 0x10
+ 
+bn_chain.base_networkable = 0x11811BF0
+bn_chain.parent_static_fields = 0x10
+bn_chain.entities = 0x18
+bn_chain.decrypt_0_rva = 0x1374BE0
+bn_chain.decrypt_1_rva = 0x1A72F10
+base_networkable.buffer_list_array = 0x10
+base_networkable.buffer_list_size = 0x18
+base_networkable.il2cpp_array_data_base = 0x28
+base_networkable.hv_offset = 0x18
+base_networkable.parentEntity = 0x38
+base_networkable.net = 0x28
+ 
+base_entity.model = 0x1B8
+base_entity.flags = 0x1C0
+base_entity.bounds = 0x18C
+ 
+base_combat_entity.lifestate = 0x2A8
+base_combat_entity._health = 0x2B4
+base_combat_entity._maxHealth = 0x2B8
+ 
+base_player.eyes = 0x7A0
+base_player.inventory = 0x7A8
+base_player.player_input = 0x518
+base_player.playerFlags = 0x6D8
+base_player.playerModel = 0x5B8
+base_player.movement = 0x540
+base_player.currentTeam = 0x558
+base_player.clActiveItem = 0x588
+base_player._displayName = 0x300
+base_player.UserIDString = 0x3C0
+base_player.userID = 0x720
+base_player.modelState = 0x4B0
+base_player.held_entity = 0x5E0
+base_player.Belt = 0x338
+ 
+player_eyes.viewOffset = 0x40
+player_eyes.bodyRotation = 0x50
+player_eyes.body_rotation_qx = 0x50
+player_eyes.body_rotation_qy = 0x54
+player_eyes.body_rotation_qz = 0x58
+player_eyes.body_rotation_qw = 0x5C
+player_eyes.head_angles_x = 0x60
+player_eyes.head_angles_y = 0x64
+player_eyes.wrapper_flag_byte = 0x10
+player_eyes.wrapper_enc_handle = 0x18
+ 
+player_input.state = 0x28
+player_input.bodyAngles = 0x44
+player_input.rotation = 0x34
+input_state.current = 0x20
+input_state.previous = 0x18
+ 
+player_model.position = 0x2F8
+player_model.new_velocity = 0x31C
+player_model.rootBone = 0x28
+player_model.headBone = 0x30
+player_model.eyeBone = 0x38
+player_model.boneTransforms = 0x50
+player_model._multiMesh = 0x398
+ 
+player_inventory.containerBelt = 0x28
+player_inventory.containerWear = 0x58
+player_inventory.containerMain = 0x78
+player_inventory.loot = 0x48
+item_container.itemList = 0x68
+item_container.itemCount = 0x30
+ 
+item.info = 0x28
+item.amount = 0x8C
+item._condition = 0x68
+item._maxCondition = 0xC4
+item.held_entity = 0x90
+item.contents = 0xA0
+item.position = 0xD8
+item.uid = 0xD0
+item.clientAmmoCount = 0xB8
+item.worldEnt = 0x38
+item_definition.itemid = 0x20
+item_definition.shortname = 0x28
+item_definition.displayName = 0x40
+item_definition.category = 0x58
+item_definition.stackable = 0x78
+item_definition.iconSprite = 0x50
+item_definition.rarity = 0x94
+item_definition.condition = 0xB8
+ 
+camera_resolve.static_base_rva = 0x1191DB58
+camera_resolve.static_fields = 0xB8
+camera_resolve.object_offset = 0x28
+camera_resolve.native_offset = 0x10
+camera.viewMatrix = 0x70
+camera.projectionMatrix = 0x748
+camera.position = 0x444
+camera.fieldOfView = 0x170
+camera.aspect = 0x4E0
+camera.nearClip = 0x454
+camera.farClip = 0x458
+camera.culling_mask = 0x100
+unity_object.cached_ptr = 0x10
+ 
+tod_sky_static.klass_rva = 0x119D0738
+tod_sky_static.static_fields = 0xB8
+tod_sky_static.instances = 0x10
+tod_sky.Cycle = 0x40
+tod_sky.Atmosphere = 0x50
+tod_sky.Day = 0x58
+tod_sky.Night = 0x60
+tod_sky.Stars = 0x78
+tod_sky.Clouds = 0x80
+tod_sky.Ambient = 0x98
+tod_cycle_parameters.Hour = 0x10
+tod_cycle_parameters.Day = 0x14
+tod_cycle_parameters.Month = 0x18
+tod_cycle_parameters.Year = 0x1C
+tod_night_parameters.SkyColor = 0x30
+tod_night_parameters.LightIntensity = 0x54
+tod_night_parameters.AmbientMultiplier = 0x5C
+tod_night_parameters.ReflectionMultiplier = 0x68
+tod_day_parameters.SkyColor = 0x28
+tod_day_parameters.LightIntensity = 0x48
+tod_star_parameters.Size = 0x10
+tod_star_parameters.Brightness = 0x14
+ 
+PlayerModel_MultiMesh = 0x398
+MultiMesh_RendererList = 0x50
+Renderer_MaterialArray = 0x140
+Renderer_MaterialCount = 0x150
+ManagedListItems = 0x10
+ManagedListSize = 0x18
+ManagedArrayFirstElem = 0x20
+ 
+base_projectile.aimCone = 0x418
+base_projectile.hipAimCone = 0x41C
+base_projectile.aimSway = 0x400
+base_projectile.aimSwaySpeed = 0x404
+base_projectile.recoil = 0x408
+base_projectile.recoilProperties = 0x408
+base_projectile.automatic = 0x398
+base_projectile.primaryMagazine = 0x3E0
+base_projectile.reloadTime = 0x3D8
+base_projectile.fractionalReload = 0x3E8
+base_projectile.deployDelay = 0x2E8
+base_projectile.repeatDelay = 0x2EC
+base_projectile.nextAttackTime = 0x340
+base_projectile.projectileVelocityScale = 0x394
+base_projectile.isBurstWeapon = 0x43F
+base_projectile.isReloading = 0x484
+base_projectile.drag = 0x34
+base_projectile.gravityModifier = 0x38
+ 
+recoil_properties.recoilYawMin = 0x18
+recoil_properties.recoilYawMax = 0x1C
+recoil_properties.recoilPitchMin = 0x20
+recoil_properties.recoilPitchMax = 0x24
+recoil_properties.newRecoilOverride = 0x80
+ 
+projectile.initialVelocity = 0x28
+projectile.drag = 0x34
+projectile.gravityModifier = 0x38
+projectile.thickness = 0x3C
+projectile.initialDistance = 0x44
+ 
+bow_weapon.pullback = 0x4C0
+bow_weapon.pullbackTime = 0x4C4
+bow_weapon.attackReady = 0x4D8
+bow_weapon.wasAiming = 0x4E0
+compound_bow.stringHoldDurationMax = 0x4E8
+compound_bow.movementPenalty = 0x53C
+compound_bow.holdProgress = 0x510
+flint_strike.successFraction = 0x4C0
+flint_strike._didSparkThisFrame = 0x4C8
+ 
+held_entity.ownerItemUID = 0x2E0
+held_entity.viewModel = 0x200
+held_entity._punches = 0x250
+held_entity.item = 0x230
+held_entity.item_owner = 0x250
+held_entity.worldModelAnimator = 0x218
+held_entity.handBone = 0x260
+held_entity.holdInfo = 0x270
+held_entity.isBuildingTool = 0x28C
+held_entity.forcedOwner = 0x290
+held_entity.hostileScore = 0x2AC
+base_view_model.useViewModelCamera = 0x40
+base_view_model.ironSights = 0xC8
+base_view_model.model = 0xD0
+base_view_model.lower = 0xF0
+base_view_model.animator = 0x130
+base_view_model.viewmodelSway = 0xB0
+base_view_model.viewmodelBob = 0x100
+ 
+unity_transform.transform_access = 0x28
+unity_transform.transform_index = 0x30
+unity_transform.world_pos_off = 0x90
+unity_transform.indirect_ptr_off = 0x28
+unity_transform_hierarchy.positions = 0x18
+unity_transform_hierarchy.parent_indices = 0x20
+unity_transform_native.access_struct_off = 0x28
+unity_component.game_object = 0x20
+unity_game_object.components = 0x20
+unity_game_object.component_count = 0x30
+unity_game_object.layer = 0x40
+unity_game_object.tag = 0x44
+unity_game_object.component_stride = 0x10
+unity_game_object.component_ptr_in_entry = 0x08
+unity_game_object.component_handle_in_native = 0x18
+game_object.Object = 0x10
+game_object.Transform = 0x20
+game_object.PrefabName = 0x50
+ 
+renderer.materialArray = 0x140
+renderer_native.material_array = 0x140
+renderer_native.material_count = 0x150
+renderer_native.material_elem_size = 0x4
+material.name = 0x60
+material.shader = 0x38
+material.instance_id = 0x18
+il2cpp_string.length = 0x10
+il2cpp_string.chars = 0x14
+ 
+model_state.flags = 0x3C
+model_state.waterLevel = 0x34
+model_state.lookDir = 0x58
+base_movement.adminCheat = 0x20
+base_movement.Owner = 0x30
+base_movement.targetMovement = 0x44
+base_movement.groundAngles = 0x108
+base_movement.groundAnglesNew = 0x110
+ 
+base_networkable.prefabID = 0x54
+base_networkable.children = 0x70
+base_networkable.globalBroadcast = 0x58
+base_networkable.networkRange = 0x64
+main_camera.camera_object = 0x10
+main_camera_static.camera_transform_off = 0x38
+ 
+base_player.GetHeldEntity_rva = 0x2156250
+base_player.get_eyes_rva = 0x20FDD80
+base_player.get_inventory_rva = 0x1FE5E70
+base_player.OnAttacked_rva = 0x1FCE260
+base_player.ClientInput_rva = 0x2145380
+base_player_inventory.getter_rva = 0x263A7C0
+ 
+hackable_locked_crate.timer_seconds = 0x400
+ 
+projectile_list.projectile_klass_rva = 0xFBDB350
+projectile_list.klass_static_fields = 0xB8
+projectile_list.instance_in_static = 0x28
+projectile_list.vals_in_hashset = 0x10
