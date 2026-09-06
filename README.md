@@ -1,3 +1,3 @@
 # Rust Offsets
 
-If you need more Decryptions/Offsets feel free to join our discord gg/code-engine 
+feel free to join us discord gg/code-engine 
