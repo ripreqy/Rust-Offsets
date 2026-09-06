@@ -1,97 +1,84 @@
-// [CE] c_entities_func — wrapper decrypt (auto-generated)
-// Date: 2026-04-15 19:23 | Source: RVA 0x1108460
-// Sequence: xor edx, 0x93748B89 -> sub edx, 0x69346EA9 -> ROL 11
-inline uint64_t client_entities(uint64_t address)
+inline std::uintptr_t client_entities(std::uintptr_t hv_value)
 {
-	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
-	if (!rax) return 0; // test rax, rax | jz ret
-	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
-	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov eax, [rdx]
-		eax ^= 0x93748B89u; // xor edx, 0x93748B89
-		eax -= 0x69346EA9u; // sub edx, 0x69346EA9
-		std::uint32_t ecx = eax; // (for ROL)
-		eax = (eax << 11) | (ecx >> 21); // shl eax,11 | shr ecx,21 | or => ROL 11
-		p[i] = eax; // mov [rdx-4], eax
-	} // sub r8d, 1 | jnz loop
-	return Il2cppGetHandle(static_cast<int32_t>(rax));
+    std::uintptr_t rax = hv_value;
+    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
+    for (std::uint32_t i = 0; i < 2; ++i)
+    {
+        std::uint32_t v = *rdx;
+        v = (v + 0x7A62B45Du) ^ 0xDDF0990Bu;
+        v = (v << 27) | (v >> 5);
+        *rdx = v;
+        ++rdx;
+    }
+    return rax;
 }
 
-// [CE] DecryptEntityList_0 — wrapper decrypt (auto-generated)
-// Date: 2026-04-15 19:23 | Source: RVA 0x107B1C0
-// Sequence: xor eax, 0x6FF3D846 -> ROL 21 -> add ecx, 0x7B132AD0
-inline uint64_t entity_list(uint64_t address)
+
+inline std::uintptr_t entity_list(std::uintptr_t hv_value)
 {
-	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
-	if (!rax) return 0; // test rax, rax | jz ret
-	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
-	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov eax, [rdx]
-		eax ^= 0x6FF3D846u; // xor eax, 0x6FF3D846
-		std::uint32_t ecx = eax; // (for ROL)
-		eax = (eax << 21) | (ecx >> 11); // shl eax,21 | shr ecx,11 | or => ROL 21
-		eax += 0x7B132AD0u; // add ecx, 0x7B132AD0
-		p[i] = eax; // mov [rdx-4], eax
-	} // sub r8d, 1 | jnz loop
-	return Il2cppGetHandle(static_cast<int32_t>(rax));
+    std::uintptr_t rax = hv_value;
+    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
+    for (std::uint32_t i = 0; i < 2; ++i)
+    {
+        std::uint32_t v = *rdx;
+        v ^= 0x18EE70EFu;
+        v = (v << 1) | (v >> 31);
+        v ^= 0xDF94DFA3u;
+        v += 0x2A6262F8u;
+        *rdx = v;
+        ++rdx;
+    }
+    return rax;
 }
 
-// [CE] DecryptClActiveItem — inline decrypt (auto-generated)
-// Date: 2026-04-15 19:23 | Source: RVA 0xC7102E, 0xC75936
-// Decrypt: sub 0x44519A01 -> xor 0x0EF6D88C -> ROL 11 -> sub 0x48BD351C
-inline uint64_t decrypt_ClActive_data(uint64_t raw_value)
+
+inline std::uintptr_t clActiveItem(std::uintptr_t hv_value)
 {
-	if (!raw_value) return 0;
-	std::uintptr_t rax = raw_value;
-	auto* p = reinterpret_cast<std::uint32_t*>(&rax);
-	for (int i = 0; i < 2; ++i) {
-		std::uint32_t eax = p[i];
-		eax -= 0x44519A01u;                // sub 0x44519A01
-		eax ^= 0xEF6D88Cu;               // xor 0x0EF6D88C
-		eax = (eax << 11) | (eax >> 21);   // ROL 11
-		eax -= 0x48BD351Cu;                // sub 0x48BD351C
-		p[i] = eax;
-	}
-	return rax;
+    std::uintptr_t rax = hv_value;
+    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
+    for (std::uint32_t i = 0; i < 2; ++i)
+    {
+        std::uint32_t v = *rdx;
+        v = (v << 28) | (v >> 4);
+        v += 0x4163CC9Au;
+        v ^= 0x3C9AE79Bu;
+        *rdx = v;
+        ++rdx;
+    }
+    return rax;
 }
 
-// [CE] decrypt_PlayerEyes — wrapper decrypt (auto-generated)
-// Date: 2026-04-15 19:23  | Source: RVA 0xE24E10
-// Sequence: ROL 11 -> sub ecx, 0x3BAD30FE -> xor ecx, 0x7790C0A0 -> add ecx, 0x6CE48E8B
-inline uint64_t decrypt_PlayerEyes(uint64_t address)
+
+inline std::uintptr_t player_inventory(std::uintptr_t hv_value)
 {
-	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
-	if (!rax) return 0; // test rax, rax | jz ret
-	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
-	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov eax, [rdx]
-		std::uint32_t ecx = eax; // (for ROL)
-		eax = (eax << 11) | (ecx >> 21); // shl eax,11 | shr ecx,21 | or => ROL 11
-		eax -= 0x3BAD30FEu; // sub ecx, 0x3BAD30FE
-		eax ^= 0x7790C0A0u; // xor ecx, 0x7790C0A0
-		eax += 0x6CE48E8Bu; // add ecx, 0x6CE48E8B
-		p[i] = eax; // mov [rdx-4], eax
-	} // sub r8d, 1 | jnz loop
-	return Il2cppGetHandle(static_cast<int32_t>(rax));
+    std::uintptr_t rax = hv_value;
+    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
+    for (std::uint32_t i = 0; i < 2; ++i)
+    {
+        std::uint32_t v = *rdx;
+        v += 0xF4BDEEB6u;
+        v = (v << 27) | (v >> 5);
+        v += 0x4056D625u;
+        v = (v << 28) | (v >> 4);
+        *rdx = v;
+        ++rdx;
+    }
+    return rax;
 }
 
-// [CE] DecryptActiveItem — inline decrypt (auto-generated)
-// Date: 2026-04-16 00:27 | Source: RVA 0xC7102E
-// Sequence: sub ecx, 0x44519A01 -> xor ecx, 0xEF6D88C -> ROL 11 -> sub eax, 0x48BD351C
-// Note: no Il2cppGetHandle — returns raw decrypted value
-inline uint64_t decrypt_PlayerInventory(uint64_t address)
+
+inline std::uintptr_t player_eyes(std::uintptr_t hv_value)
 {
-	std::uintptr_t rax = driver->Read<std::uintptr_t>(address + 0x18); // mov rax, [address+0x18]
-	if (!rax) return 0; // test rax, rax | jz ret
-	auto* p = reinterpret_cast<std::uint32_t*>(&rax); // lea rdx, [rsp+0x20]
-	for (int i = 0; i < 2; ++i) { // mov r8d, 2
-		std::uint32_t eax = p[i]; // mov eax, [rdx]
-		eax ^= 0x2B99655Bu; // xor eax, 0x2B99655B
-		eax += 0xC749C554u; // add eax, 0xC749C554
-		std::uint32_t ecx = eax; // (for ROL)
-		eax = (eax << 7) | (ecx >> 25); // shl eax,7 | shr ecx,25 | or => ROL 7
-		eax += 0x784A90B1u; // add ecx, 0x784A90B1
-		p[i] = eax; // mov [rdx-4], eax
-	} // sub r8d, 1 | jnz loop
-	return Il2cppGetHandle(static_cast<int32_t>(rax));
+    std::uintptr_t rax = hv_value;
+    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
+    for (std::uint32_t i = 0; i < 2; ++i)
+    {
+        std::uint32_t v = *rdx;
+        v ^= 0x073DF469u;
+        v -= 0x061E7F65u;
+        v ^= 0x35841624u;
+        *rdx = v;
+        ++rdx;
+    }
+    return rax;
 }
