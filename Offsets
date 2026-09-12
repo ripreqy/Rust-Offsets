@@ -1,269 +1,421 @@
-base_networkable_static = 0x119536D8
-main_camera_c = 0x1191DB58
-tod_sky_c = 0x119D0738
-local_player_type_info = 0x1198FC28
-base_player_typeinfo = 0x11999730
-BaseEntity = 0x11981CC0
-BaseCombatEntity = 0x119E4848
-BaseProjectile = 0x119E9418
-il2cpphandle = 0x11A88F30
-game_manager = 0x11866048
-item_icon_c = 0x11623CF0
-gc_handles::array_rva = 0x10C71E20
-physx_sdk::global_ptr_rva = 0x217A7E8
-projectile_list::klass_rva = 0xFBDB350
- 
-static_fields = 0xB8
-wrapper_class_ptr = 0x8
-parent_off = 0x58
-name_ptr = 0x10
- 
-bn_chain.base_networkable = 0x11811BF0
-bn_chain.parent_static_fields = 0x10
-bn_chain.entities = 0x18
-bn_chain.decrypt_0_rva = 0x1374BE0
-bn_chain.decrypt_1_rva = 0x1A72F10
-base_networkable.buffer_list_array = 0x10
-base_networkable.buffer_list_size = 0x18
-base_networkable.il2cpp_array_data_base = 0x28
-base_networkable.hv_offset = 0x18
-base_networkable.parentEntity = 0x38
-base_networkable.net = 0x28
- 
-base_entity.model = 0x1B8
-base_entity.flags = 0x1C0
-base_entity.bounds = 0x18C
- 
-base_combat_entity.lifestate = 0x2A8
-base_combat_entity._health = 0x2B4
-base_combat_entity._maxHealth = 0x2B8
- 
-base_player.eyes = 0x7A0
-base_player.inventory = 0x7A8
-base_player.player_input = 0x518
-base_player.playerFlags = 0x6D8
-base_player.playerModel = 0x5B8
-base_player.movement = 0x540
-base_player.currentTeam = 0x558
-base_player.clActiveItem = 0x588
-base_player._displayName = 0x300
-base_player.UserIDString = 0x3C0
-base_player.userID = 0x720
-base_player.modelState = 0x4B0
-base_player.held_entity = 0x5E0
-base_player.Belt = 0x338
- 
-player_eyes.viewOffset = 0x40
-player_eyes.bodyRotation = 0x50
-player_eyes.body_rotation_qx = 0x50
-player_eyes.body_rotation_qy = 0x54
-player_eyes.body_rotation_qz = 0x58
-player_eyes.body_rotation_qw = 0x5C
-player_eyes.head_angles_x = 0x60
-player_eyes.head_angles_y = 0x64
-player_eyes.wrapper_flag_byte = 0x10
-player_eyes.wrapper_enc_handle = 0x18
- 
-player_input.state = 0x28
-player_input.bodyAngles = 0x44
-player_input.rotation = 0x34
-input_state.current = 0x20
-input_state.previous = 0x18
- 
-player_model.position = 0x2F8
-player_model.new_velocity = 0x31C
-player_model.rootBone = 0x28
-player_model.headBone = 0x30
-player_model.eyeBone = 0x38
-player_model.boneTransforms = 0x50
-player_model._multiMesh = 0x398
- 
-player_inventory.containerBelt = 0x28
-player_inventory.containerWear = 0x58
-player_inventory.containerMain = 0x78
-player_inventory.loot = 0x48
-item_container.itemList = 0x68
-item_container.itemCount = 0x30
- 
-item.info = 0x28
-item.amount = 0x8C
-item._condition = 0x68
-item._maxCondition = 0xC4
-item.held_entity = 0x90
-item.contents = 0xA0
-item.position = 0xD8
-item.uid = 0xD0
-item.clientAmmoCount = 0xB8
-item.worldEnt = 0x38
-item_definition.itemid = 0x20
-item_definition.shortname = 0x28
-item_definition.displayName = 0x40
-item_definition.category = 0x58
-item_definition.stackable = 0x78
-item_definition.iconSprite = 0x50
-item_definition.rarity = 0x94
-item_definition.condition = 0xB8
- 
-camera_resolve.static_base_rva = 0x1191DB58
-camera_resolve.static_fields = 0xB8
-camera_resolve.object_offset = 0x28
-camera_resolve.native_offset = 0x10
-camera.viewMatrix = 0x70
-camera.projectionMatrix = 0x748
-camera.position = 0x444
-camera.fieldOfView = 0x170
-camera.aspect = 0x4E0
-camera.nearClip = 0x454
-camera.farClip = 0x458
-camera.culling_mask = 0x100
-unity_object.cached_ptr = 0x10
- 
-tod_sky_static.klass_rva = 0x119D0738
-tod_sky_static.static_fields = 0xB8
-tod_sky_static.instances = 0x10
-tod_sky.Cycle = 0x40
-tod_sky.Atmosphere = 0x50
-tod_sky.Day = 0x58
-tod_sky.Night = 0x60
-tod_sky.Stars = 0x78
-tod_sky.Clouds = 0x80
-tod_sky.Ambient = 0x98
-tod_cycle_parameters.Hour = 0x10
-tod_cycle_parameters.Day = 0x14
-tod_cycle_parameters.Month = 0x18
-tod_cycle_parameters.Year = 0x1C
-tod_night_parameters.SkyColor = 0x30
-tod_night_parameters.LightIntensity = 0x54
-tod_night_parameters.AmbientMultiplier = 0x5C
-tod_night_parameters.ReflectionMultiplier = 0x68
-tod_day_parameters.SkyColor = 0x28
-tod_day_parameters.LightIntensity = 0x48
-tod_star_parameters.Size = 0x10
-tod_star_parameters.Brightness = 0x14
- 
-PlayerModel_MultiMesh = 0x398
-MultiMesh_RendererList = 0x50
-Renderer_MaterialArray = 0x140
-Renderer_MaterialCount = 0x150
-ManagedListItems = 0x10
-ManagedListSize = 0x18
-ManagedArrayFirstElem = 0x20
- 
-base_projectile.aimCone = 0x418
-base_projectile.hipAimCone = 0x41C
-base_projectile.aimSway = 0x400
-base_projectile.aimSwaySpeed = 0x404
-base_projectile.recoil = 0x408
-base_projectile.recoilProperties = 0x408
-base_projectile.automatic = 0x398
-base_projectile.primaryMagazine = 0x3E0
-base_projectile.reloadTime = 0x3D8
-base_projectile.fractionalReload = 0x3E8
-base_projectile.deployDelay = 0x2E8
-base_projectile.repeatDelay = 0x2EC
-base_projectile.nextAttackTime = 0x340
-base_projectile.projectileVelocityScale = 0x394
-base_projectile.isBurstWeapon = 0x43F
-base_projectile.isReloading = 0x484
-base_projectile.drag = 0x34
-base_projectile.gravityModifier = 0x38
- 
-recoil_properties.recoilYawMin = 0x18
-recoil_properties.recoilYawMax = 0x1C
-recoil_properties.recoilPitchMin = 0x20
-recoil_properties.recoilPitchMax = 0x24
-recoil_properties.newRecoilOverride = 0x80
- 
-projectile.initialVelocity = 0x28
-projectile.drag = 0x34
-projectile.gravityModifier = 0x38
-projectile.thickness = 0x3C
-projectile.initialDistance = 0x44
- 
-bow_weapon.pullback = 0x4C0
-bow_weapon.pullbackTime = 0x4C4
-bow_weapon.attackReady = 0x4D8
-bow_weapon.wasAiming = 0x4E0
-compound_bow.stringHoldDurationMax = 0x4E8
-compound_bow.movementPenalty = 0x53C
-compound_bow.holdProgress = 0x510
-flint_strike.successFraction = 0x4C0
-flint_strike._didSparkThisFrame = 0x4C8
- 
-held_entity.ownerItemUID = 0x2E0
-held_entity.viewModel = 0x200
-held_entity._punches = 0x250
-held_entity.item = 0x230
-held_entity.item_owner = 0x250
-held_entity.worldModelAnimator = 0x218
-held_entity.handBone = 0x260
-held_entity.holdInfo = 0x270
-held_entity.isBuildingTool = 0x28C
-held_entity.forcedOwner = 0x290
-held_entity.hostileScore = 0x2AC
-base_view_model.useViewModelCamera = 0x40
-base_view_model.ironSights = 0xC8
-base_view_model.model = 0xD0
-base_view_model.lower = 0xF0
-base_view_model.animator = 0x130
-base_view_model.viewmodelSway = 0xB0
-base_view_model.viewmodelBob = 0x100
- 
-unity_transform.transform_access = 0x28
-unity_transform.transform_index = 0x30
-unity_transform.world_pos_off = 0x90
-unity_transform.indirect_ptr_off = 0x28
-unity_transform_hierarchy.positions = 0x18
-unity_transform_hierarchy.parent_indices = 0x20
-unity_transform_native.access_struct_off = 0x28
-unity_component.game_object = 0x20
-unity_game_object.components = 0x20
-unity_game_object.component_count = 0x30
-unity_game_object.layer = 0x40
-unity_game_object.tag = 0x44
-unity_game_object.component_stride = 0x10
-unity_game_object.component_ptr_in_entry = 0x08
-unity_game_object.component_handle_in_native = 0x18
-game_object.Object = 0x10
-game_object.Transform = 0x20
-game_object.PrefabName = 0x50
- 
-renderer.materialArray = 0x140
-renderer_native.material_array = 0x140
-renderer_native.material_count = 0x150
-renderer_native.material_elem_size = 0x4
-material.name = 0x60
-material.shader = 0x38
-material.instance_id = 0x18
-il2cpp_string.length = 0x10
-il2cpp_string.chars = 0x14
- 
-model_state.flags = 0x3C
-model_state.waterLevel = 0x34
-model_state.lookDir = 0x58
-base_movement.adminCheat = 0x20
-base_movement.Owner = 0x30
-base_movement.targetMovement = 0x44
-base_movement.groundAngles = 0x108
-base_movement.groundAnglesNew = 0x110
- 
-base_networkable.prefabID = 0x54
-base_networkable.children = 0x70
-base_networkable.globalBroadcast = 0x58
-base_networkable.networkRange = 0x64
-main_camera.camera_object = 0x10
-main_camera_static.camera_transform_off = 0x38
- 
-base_player.GetHeldEntity_rva = 0x2156250
-base_player.get_eyes_rva = 0x20FDD80
-base_player.get_inventory_rva = 0x1FE5E70
-base_player.OnAttacked_rva = 0x1FCE260
-base_player.ClientInput_rva = 0x2145380
-base_player_inventory.getter_rva = 0x263A7C0
- 
-hackable_locked_crate.timer_seconds = 0x400
- 
-projectile_list.projectile_klass_rva = 0xFBDB350
-projectile_list.klass_static_fields = 0xB8
-projectile_list.instance_in_static = 0x28
-projectile_list.vals_in_hashset = 0x10
+#pragma once
+#include <cstdint>
+#include <bit>
+
+namespace rust_offsets
+{
+
+namespace klass_rvas {
+    constexpr uintptr_t BaseNetworkable       = 0x10BE8EC8;
+    constexpr uintptr_t BaseEntity            = 0x10CAF278;
+    constexpr uintptr_t BaseCombatEntity      = 0x10C13F48;
+    constexpr uintptr_t BasePlayer            = 0x10C06290;
+    constexpr uintptr_t BaseVehicle           = 0x10C43CC0;
+    constexpr uintptr_t BaseMountable         = 0x10C72350;
+    constexpr uintptr_t BaseCorpse            = 0x10C743B0;
+    constexpr uintptr_t BaseProjectile        = 0x10BFE170;
+    constexpr uintptr_t BaseMelee             = 0x10CD49F8;
+    constexpr uintptr_t HeldEntity            = 0x10C74960;
+    constexpr uintptr_t DroppedItem           = 0x10C08860;
+    constexpr uintptr_t DroppedItemContainer  = 0x10C6FD40;
+    constexpr uintptr_t OreResourceEntity     = 0x10C6FD58;
+    constexpr uintptr_t CollectibleEntity     = 0x10C716A8;
+    constexpr uintptr_t BuildingBlock         = 0x10C48728;
+    constexpr uintptr_t BuildingPrivlidge     = 0x10BF01D8;
+    constexpr uintptr_t Door                  = 0x10C481E0;
+    constexpr uintptr_t StorageContainer      = 0x10C74140;
+    constexpr uintptr_t WorldItem             = 0x10C68540;
+    constexpr uintptr_t MainCamera            = 0x10C62B28;
+    constexpr uintptr_t PlayerEyes            = 0x10C72548;
+    constexpr uintptr_t PlayerInventory       = 0x10C74B48;
+    constexpr uintptr_t PlayerInput           = 0x10C792D8;
+    constexpr uintptr_t TOD_Sky               = 0x10C593A8;
+    constexpr uintptr_t LocalPlayer           = 0x10C519C8;
+}
+
+namespace klass_layout {
+    constexpr uint32_t name_ptr      = 0x10;
+    constexpr uint32_t static_fields = 0xB8;
+    constexpr uint32_t parent_off    = 0x58;
+}
+
+namespace local_player {
+    constexpr uintptr_t klass_rva     = 0x10C519C8;
+    constexpr uintptr_t static_fields = 0xB8;
+    constexpr uintptr_t entity_field  = 0x18;
+    constexpr uintptr_t hv_in_wrapper = 0x18;
+}
+
+namespace bn_chain {
+    constexpr uintptr_t klass_rva           = 0x10BE8EC8;
+    constexpr uintptr_t static_fields       = 0xB8;
+    constexpr uintptr_t wrapper_class_ptr   = 0x20;
+    constexpr uintptr_t parent_static_fields = 0x18;
+    constexpr uintptr_t entities            = 0x20;
+}
+
+namespace unity_object { constexpr uint32_t cached_ptr = 0x10; }
+
+namespace game_object {
+    constexpr uintptr_t Object     = 0x10;
+    constexpr uintptr_t Transform  = 0x20;
+    constexpr uintptr_t PrefabName = 0x50;
+}
+
+namespace base_networkable {
+    constexpr uintptr_t entities              = 0x20;
+    constexpr uintptr_t hv_offset             = 0x18;
+    constexpr uint32_t buffer_list_array      = 0x10;
+    constexpr uint32_t buffer_list_size       = 0x18;
+    constexpr uint32_t il2cpp_array_data_base = 0x28;
+    constexpr uintptr_t prefabID              = 0x54;
+    constexpr uintptr_t parentEntity          = 0x38;
+    constexpr uintptr_t children              = 0x88;
+}
+
+namespace base_entity {
+    constexpr uintptr_t bounds       = 0x18C;
+    constexpr uintptr_t model        = 0x1B8;
+    constexpr uintptr_t flags        = 0x1C0;
+    constexpr uintptr_t triggers     = 0x138;
+    constexpr uintptr_t positionLerp = 0xE8;
+}
+
+namespace base_combat_entity {
+    constexpr uintptr_t skeletonProperties  = 0x230;
+    constexpr uintptr_t baseProtection      = 0x238;
+    constexpr uintptr_t lifestate           = 0x2A8;
+    constexpr uintptr_t markAttackerHostile = 0x2AE;
+    constexpr uintptr_t _health             = 0x2B4;
+    constexpr uintptr_t _maxHealth          = 0x2B8;
+}
+
+namespace base_player {
+    constexpr uintptr_t eyes                        = 0x718;
+    constexpr uintptr_t playerRigidbody             = 0x4C8;
+    constexpr uintptr_t playerModel                 = 0x2F0;
+    constexpr uintptr_t movement                    = 0x348;
+    constexpr uintptr_t currentTeam                 = 0x558;
+    constexpr uintptr_t clActiveItem                = 0x588;
+    constexpr uintptr_t _displayName                = 0x520;
+    constexpr uintptr_t player_input                = 0x6F0;
+    constexpr uintptr_t playerFlags                 = 0x6D8;
+    constexpr uintptr_t inventory                   = 0x3A0;
+    constexpr uintptr_t userID                      = 0x720;
+    constexpr uintptr_t UserIDString                = 0x748;
+    constexpr uintptr_t modelState                  = 0x4B0;
+    constexpr uintptr_t currentGesture              = 0x310;
+    constexpr uintptr_t _lookingAt                  = 0x4F8;
+    constexpr uintptr_t _lookingAtEntity            = 0x5A8;
+    constexpr uintptr_t Belt                        = 0x3C0;
+    constexpr uintptr_t mounted                     = 0x5E0;
+    constexpr uintptr_t lastSentTick                = 0x6F8;
+    constexpr uintptr_t lastSentTickTime            = 0x698;
+    constexpr uintptr_t weaponMoveSpeedScale        = 0x7B8;
+    constexpr uintptr_t clothingBlocksAiming        = 0x7BC;
+    constexpr uintptr_t clothingMoveSpeedReduction  = 0x7C0;
+    constexpr uintptr_t clothingWaterSpeedBonus     = 0x7C4;
+    constexpr uintptr_t equippingBlocked            = 0x7CC;
+    constexpr uintptr_t GetHeldEntity_rva           = 0x36602D0;
+    constexpr uintptr_t get_eyes_rva                = 0x3633880;
+    constexpr uintptr_t get_inventory_rva           = 0x35D1580;
+    constexpr uintptr_t OnAttacked_rva              = 0x35E9B30;
+}
+
+namespace player_eyes {
+    constexpr uintptr_t viewOffset      = 0x40;
+    constexpr uintptr_t bodyRotation    = 0x50;
+    constexpr uintptr_t body_rotation_qx = 0x50;
+    constexpr uintptr_t body_rotation_qy = 0x54;
+    constexpr uintptr_t body_rotation_qz = 0x58;
+    constexpr uintptr_t body_rotation_qw = 0x5C;
+    constexpr uintptr_t head_angles_x   = 0x60;
+    constexpr uintptr_t head_angles_y   = 0x64;
+    constexpr uintptr_t head_angles_z   = 0x68;
+    constexpr uintptr_t eye_rotation    = 0x6C;
+}
+
+namespace player_input {
+    constexpr uintptr_t bodyAngles = 0x44;
+}
+
+namespace input_state {
+    constexpr uintptr_t current  = 0x20;
+    constexpr uintptr_t previous = 0x10;
+}
+
+namespace input_message {
+    constexpr uintptr_t buttons    = 0x1C;
+    constexpr uintptr_t mouseDelta = 0x20;
+    constexpr uintptr_t aimAngles  = 0x10;
+    constexpr uintptr_t pitch      = 0x10;
+    constexpr uintptr_t yaw        = 0x14;
+}
+
+namespace player_model {
+    constexpr uintptr_t rootBone       = 0x98;
+    constexpr uintptr_t headBone       = 0xF8;
+    constexpr uintptr_t eyeBone        = 0xB0;
+    constexpr uintptr_t boneTransforms = 0x98;
+    constexpr uintptr_t _multiMesh     = 0x488;
+    constexpr uintptr_t position       = 0x2F8;
+    constexpr uintptr_t velocity       = 0x310;
+    constexpr uintptr_t new_velocity   = 0x31C;
+    constexpr uintptr_t isNpc          = 0x4CC;
+}
+
+namespace model_state {
+    constexpr uintptr_t flags      = 0x44;
+    constexpr uintptr_t waterLevel = 0x48;
+    constexpr uintptr_t lookDir    = 0x30;
+}
+
+namespace skinned_multi_mesh {
+    constexpr uintptr_t renderers              = 0x58;
+    constexpr uintptr_t rendererMaterialArray  = 0x140;
+    constexpr uintptr_t shadowOnly             = 0x20;
+    constexpr uintptr_t skeleton               = 0x28;
+    constexpr uintptr_t parts                  = 0x38;
+    constexpr uintptr_t skinNumber             = 0x60;
+    constexpr uintptr_t meshNumber             = 0x64;
+    constexpr uint32_t renderers_items         = 0x10;
+    constexpr uint32_t renderers_size          = 0x18;
+    constexpr uint32_t renderers_array_data    = 0x20;
+}
+
+namespace renderer_native {
+    constexpr uintptr_t material_array = 0x140;
+    constexpr uintptr_t material_count = 0x150;
+    constexpr uint32_t material_elem_size = 0x4;
+}
+
+namespace material {
+    constexpr uintptr_t name       = 0x60;
+    constexpr uintptr_t shader     = 0x38;
+    constexpr uintptr_t instance_id = 0x18;
+}
+
+namespace il2cpp_string {
+    constexpr uintptr_t length = 0x10;
+    constexpr uintptr_t chars  = 0x14;
+}
+
+namespace player_inventory {
+    constexpr uintptr_t loot          = 0x48;
+    constexpr uintptr_t containerBelt = 0x28;
+    constexpr uintptr_t containerMain = 0x60;
+    constexpr uintptr_t containerWear = 0x78;
+}
+
+namespace item_container {
+    constexpr uintptr_t itemList    = 0x38;
+    constexpr uintptr_t uid         = 0x48;
+    constexpr uintptr_t capacity    = 0x5C;
+    constexpr uintptr_t playerOwner = 0x70;
+    constexpr uintptr_t entityOwner = 0x18;
+}
+
+namespace world_item {
+    constexpr uintptr_t item = 0x208;
+}
+
+namespace item {
+    constexpr uintptr_t info            = 0x60;
+    constexpr uintptr_t amount          = 0x40;
+    constexpr uintptr_t position        = 0x70;
+    constexpr uintptr_t uid             = 0x88;
+    constexpr uintptr_t heldEntity      = 0x10;
+    constexpr uintptr_t clientAmmoCount = 0x2C;
+    constexpr uintptr_t contents        = 0x38;
+    constexpr uintptr_t _condition      = 0xE0;
+    constexpr uintptr_t _maxCondition   = 0x44;
+    constexpr uintptr_t worldEnt        = 0x78;
+}
+
+namespace item_definition {
+    constexpr uintptr_t itemid      = 0x20;
+    constexpr uintptr_t shortname   = 0x28;
+    constexpr uintptr_t displayName = 0x40;
+    constexpr uintptr_t category    = 0x58;
+    constexpr uintptr_t iconSprite  = 0x50;
+    constexpr uintptr_t stackable   = 0x78;
+    constexpr uintptr_t rarity      = 0x94;
+    constexpr uintptr_t condition   = 0xB8;
+}
+
+namespace base_projectile {
+    constexpr uintptr_t aimCone                 = 0x418;
+    constexpr uintptr_t hipAimCone              = 0x41C;
+    constexpr uintptr_t aimSway                 = 0x400;
+    constexpr uintptr_t aimSwaySpeed            = 0x404;
+    constexpr uintptr_t recoil                  = 0x408;
+    constexpr uintptr_t projectileVelocityScale = 0x394;
+    constexpr uintptr_t automatic               = 0x398;
+    constexpr uintptr_t reloadTime              = 0x3D8;
+    constexpr uintptr_t primaryMagazine         = 0x3E0;
+    constexpr uintptr_t fractionalReload        = 0x3E8;
+}
+
+namespace base_projectile_ext {
+    constexpr uintptr_t viewmodelInstance          = 0x1E0;
+    constexpr uintptr_t aimconePenaltyPerShot      = 0x420;
+    constexpr uintptr_t aimConePenaltyMax          = 0x424;
+    constexpr uintptr_t aimconePenaltyRecoverTime  = 0x428;
+    constexpr uintptr_t aimconePenaltyRecoverDelay = 0x42C;
+    constexpr uintptr_t stancePenaltyScale         = 0x430;
+    constexpr uintptr_t internalBurstAimConeScale  = 0x44C;
+    constexpr uintptr_t sightAimConeScale          = 0x474;
+    constexpr uintptr_t hipAimConeScale            = 0x47C;
+    constexpr uintptr_t stringHoldDurationMax      = 0x4E8;
+}
+
+namespace recoil_properties {
+    constexpr uintptr_t recoilYawMin      = 0x18;
+    constexpr uintptr_t recoilYawMax      = 0x1C;
+    constexpr uintptr_t recoilPitchMin    = 0x20;
+    constexpr uintptr_t recoilPitchMax    = 0x24;
+    constexpr uintptr_t newRecoilOverride = 0x80;
+}
+
+namespace bow_weapon {
+    constexpr uintptr_t pullback     = 0x4C0;
+    constexpr uintptr_t pullbackTime = 0x4C4;
+    constexpr uintptr_t attackReady  = 0x4D8;
+    constexpr uintptr_t wasAiming    = 0x4E0;
+}
+
+namespace compound_bow_weapon {
+    constexpr uintptr_t stringHoldDurationMax = 0x4E8;
+    constexpr uintptr_t movementPenalty       = 0x53C;
+    constexpr uintptr_t holdProgress          = 0x510;
+}
+
+namespace flint_strike_weapon {
+    constexpr uintptr_t successFraction   = 0x4C0;
+    constexpr uintptr_t _didSparkThisFrame = 0x4C8;
+}
+
+namespace projectile {
+    constexpr uintptr_t initialVelocity = 0x28;
+    constexpr uintptr_t drag            = 0x34;
+    constexpr uintptr_t gravityModifier = 0x38;
+    constexpr uintptr_t thickness       = 0x3C;
+    constexpr uintptr_t initialDistance = 0x44;
+}
+
+namespace item_mod_projectile {
+    constexpr uintptr_t projectileObject         = 0x20;
+    constexpr uintptr_t numProjectiles           = 0x38;
+    constexpr uintptr_t projectileVelocity       = 0x40;
+    constexpr uintptr_t projectileVelocitySpread = 0x44;
+}
+
+namespace held_entity {
+    constexpr uintptr_t item            = 0x240;
+    constexpr uintptr_t viewModel       = 0x250;
+    constexpr uint32_t viewModel_kind   = 0x4;
+    constexpr uint32_t viewModel_inner  = 0x28;
+    constexpr uintptr_t handBone        = 0x260;
+    constexpr uintptr_t _punches        = 0x2D8;
+    constexpr uintptr_t ownerItemUID    = 0x2E0;
+    constexpr uintptr_t primaryMagazine = 0x3E0;
+    constexpr uintptr_t hideViewmodel   = 0x238;
+}
+
+namespace base_view_model {
+    constexpr uintptr_t useViewModelCamera = 0x40;
+    constexpr uintptr_t model              = 0x98;
+    constexpr uintptr_t animator           = 0xA0;
+    constexpr uintptr_t viewmodelSway      = 0xA8;
+    constexpr uintptr_t viewmodelBob       = 0xE0;
+    constexpr uintptr_t ironSights         = 0xC8;
+    constexpr uintptr_t lower              = 0x100;
+}
+
+namespace main_camera_static {
+    constexpr uintptr_t klass_rva     = 0x10C62B28;
+    constexpr uintptr_t static_fields = 0xB8;
+    constexpr uintptr_t camera_object = 0x28;
+    constexpr uintptr_t native_offset = 0x10;
+}
+
+namespace camera {
+    constexpr uintptr_t viewMatrix       = 0x2FC;
+    constexpr uintptr_t projectionMatrix = 0x748;
+    constexpr uintptr_t clipMatrix       = 0x2FC;
+    constexpr uintptr_t position         = 0x444;
+    constexpr uintptr_t aspect           = 0x130;
+    constexpr uintptr_t nearClip         = 0x114;
+    constexpr uintptr_t farClip          = 0x124;
+    constexpr uintptr_t culling_mask     = 0x104;
+    constexpr uintptr_t fieldOfView      = 0x170;
+    constexpr uint32_t projection_layout = 0x1;
+    constexpr uint32_t clip_layout       = 0x1;
+    constexpr uint32_t view_is_real      = 0x0;
+}
+
+namespace tod_sky_static {
+    constexpr uintptr_t klass_rva      = 0x10C593A8;
+    constexpr uintptr_t static_fields  = 0xB8;
+    constexpr uintptr_t instance_field = 0x68;
+    constexpr uintptr_t list_items     = 0x10;
+    constexpr uintptr_t list_size      = 0x18;
+    constexpr uintptr_t array_header   = 0x20;
+}
+
+namespace tod_sky {
+    constexpr uint32_t Cycle      = 0x40;
+    constexpr uint32_t Atmosphere = 0x50;
+    constexpr uint32_t Day        = 0x58;
+    constexpr uint32_t Night      = 0x60;
+    constexpr uint32_t Stars      = 0x78;
+    constexpr uint32_t Clouds     = 0x80;
+    constexpr uint32_t Ambient    = 0x98;
+}
+
+namespace tod_cycle_parameters {
+    constexpr uint32_t Hour  = 0x10;
+    constexpr uint32_t Day   = 0x14;
+    constexpr uint32_t Month = 0x18;
+    constexpr uint32_t Year  = 0x1C;
+}
+
+namespace tod_day_parameters {
+    constexpr uint32_t SkyColor       = 0x28;
+    constexpr uint32_t LightIntensity = 0x48;
+}
+
+namespace tod_night_parameters {
+    constexpr uint32_t SkyColor             = 0x30;
+    constexpr uint32_t LightIntensity       = 0x54;
+    constexpr uint32_t AmbientMultiplier    = 0x5C;
+    constexpr uint32_t ReflectionMultiplier = 0x68;
+}
+
+namespace tod_star_parameters {
+    constexpr uint32_t Size       = 0x10;
+    constexpr uint32_t Brightness = 0x14;
+}
+
+namespace tod_ambient_parameters {
+    constexpr uint32_t Saturation     = 0x14;
+    constexpr uint32_t UpdateInterval = 0x18;
+}
+
+namespace base_movement {
+    constexpr uintptr_t adminCheat = 0x20;
+    constexpr uintptr_t Owner      = 0x30;
+}
+
+namespace unity_time {}
+
+namespace gc_handles {
+    constexpr uintptr_t array_rva = 0x11DB2E30;
+}
+
+namespace il2cpp_api {
+    constexpr uintptr_t thread_attach  = 0x875FF0;
+    constexpr uintptr_t thread_current = 0x875FC0;
+}
+
+}
