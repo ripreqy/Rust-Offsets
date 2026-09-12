@@ -1,84 +1,50 @@
-inline std::uintptr_t client_entities(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v = (v + 0x7A62B45Du) ^ 0xDDF0990Bu;
-        v = (v << 27) | (v >> 5);
-        *rdx = v;
-        ++rdx;
+inline uintptr_t client_entities(uintptr_t hv) {
+    auto* p = reinterpret_cast<uint32_t*>(&hv);
+    for (int i = 0; i < 2; ++i) {
+        uint32_t v = p[i];
+        v ^= 0x6B59DCD4u;
+        v += 0x12F287EEu;
+        v = (v << 10) | (v >> 22);
+        v += 0x2AD5742Au;
+        p[i] = v;
     }
-    return rax;
+    return hv;
 }
 
-
-inline std::uintptr_t entity_list(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v ^= 0x18EE70EFu;
-        v = (v << 1) | (v >> 31);
-        v ^= 0xDF94DFA3u;
-        v += 0x2A6262F8u;
-        *rdx = v;
-        ++rdx;
+// BaseNetworkable_1 entity_list  (ROL/XOR/ADD)
+inline uintptr_t entity_list(uintptr_t hv) {
+    auto* p = reinterpret_cast<uint32_t*>(&hv);
+    for (int i = 0; i < 2; ++i) {
+        uint32_t v = p[i];
+        v = (v << 26) | (v >> 6);
+        v ^= 0xADA5634Cu;
+        v += 0x1BFFF7A6u;
+        p[i] = v;
     }
-    return rax;
+    return hv;
 }
 
-
-inline std::uintptr_t clActiveItem(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
+inline uintptr_t player_inventory(uintptr_t hv) {
+    auto* p = reinterpret_cast<uint32_t*>(&hv);
+    for (int i = 0; i < 2; ++i) {
+        uint32_t v = p[i];
         v = (v << 28) | (v >> 4);
-        v += 0x4163CC9Au;
-        v ^= 0x3C9AE79Bu;
-        *rdx = v;
-        ++rdx;
+        v ^= 0x65B9B225u;
+        v += 0x2F961B1Eu;
+        p[i] = v;
     }
-    return rax;
+    return hv;
 }
 
-
-inline std::uintptr_t player_inventory(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v += 0xF4BDEEB6u;
-        v = (v << 27) | (v >> 5);
-        v += 0x4056D625u;
-        v = (v << 28) | (v >> 4);
-        *rdx = v;
-        ++rdx;
+inline uintptr_t player_eyes(uintptr_t hv) {
+    auto* p = reinterpret_cast<uint32_t*>(&hv);
+    for (int i = 0; i < 2; ++i) {
+        uint32_t v = p[i];
+        v += 0xC4421DB7u;
+        v = (v << 15) | (v >> 17);
+        v ^= 0x8F17AD9Au;
+        v = (v << 6) | (v >> 26);
+        p[i] = v;
     }
-    return rax;
-}
-
-
-inline std::uintptr_t player_eyes(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v ^= 0x073DF469u;
-        v -= 0x061E7F65u;
-        v ^= 0x35841624u;
-        *rdx = v;
-        ++rdx;
-    }
-    return rax;
+    return hv;
 }
