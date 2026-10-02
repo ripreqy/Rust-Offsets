@@ -1,83 +1,68 @@
-inline std::uintptr_t client_entities(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v += 0x5B90BDF1u;
-        v = (v << 13) | (v >> 19);
-        v += 0x87F6F395u;
-        v = (v << 10) | (v >> 22);
-        *rdx = v;
-        ++rdx;
+inline uint64_t decrypt_bn0(uint64_t v) {
+    uint32_t* p = (uint32_t*)&v;
+    for (int i = 0; i < 2; ++i, ++p) {
+        uint32_t x = *p;
+        x ^= 0x1D967507u;
+        x = (x << 8) | (x >> 24);
+        x -= 0x42DC34A6u;
+        *p = x;
     }
-    return rax;
+    return v;
 }
-
-inline std::uintptr_t entity_list(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v += 0xF32657A6u;
-        v = (v << 17) | (v >> 15);
-        v += 0x2CA1F449u;
-        v = (v << 13) | (v >> 19);
-        *rdx = v;
-        ++rdx;
+ 
+inline uint64_t decrypt_bn1(uint64_t v) {
+    uint32_t* p = (uint32_t*)&v;
+    for (int i = 0; i < 2; ++i, ++p) {
+        uint32_t x = *p;
+        x += 0x43A97588u;
+        x = (x << 11) | (x >> 21);
+        x ^= 0xEDBCB0B2u;
+        *p = x;
     }
-    return rax;
+    return v;
 }
-
-inline std::uintptr_t clActiveItem(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v ^= 0x1ED63991u;
-        v = (v << 11) | (v >> 21);
-        v ^= 0x2519E30Du;
-        *rdx = v;
-        ++rdx;
+ 
+inline uint64_t decrypt_cl_active_item(uint64_t v) {
+    uint32_t* p = (uint32_t*)&v;
+    for (int i = 0; i < 2; ++i, ++p) {
+        uint32_t x = *p;
+        x += 0x0A0EFB54u;
+        x = (x << 12) | (x >> 20);
+        x ^= 0x7F547310u;
+        *p = x;
     }
-    return rax;
+    return v;
 }
-
-inline std::uintptr_t player_inventory(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v = (v << 25) | (v >> 7);
-        v ^= 0x4C3F5742u;
-        v += 0x14BA377Eu;
-        v = (v << 19) | (v >> 13);
-        *rdx = v;
-        ++rdx;
+ 
+inline uint64_t decrypt_player_inventory(uint64_t v) {
+    uint32_t* p = (uint32_t*)&v;
+    for (int i = 0; i < 2; ++i, ++p) {
+        uint32_t x = *p;
+        x ^= 0xCA964D04u;
+        x = (x << 31) | (x >> 1);
+        x -= 0x3F430ACEu;
+        *p = x;
     }
-    return rax;
+    return v;
 }
-
-inline std::uintptr_t player_eyes(std::uintptr_t hv_value)
-{
-    std::uintptr_t rax = hv_value;
-    std::uint32_t* rdx = reinterpret_cast<std::uint32_t*>(&rax);
-    for (std::uint32_t i = 0; i < 2; ++i)
-    {
-        std::uint32_t v = *rdx;
-        v = (v << 6) | (v >> 26);
-        v -= 0x37D21684u;
-        v ^= 0xD99DB368u;
-        v += 0x1EA2924Au;
-        *rdx = v;
-        ++rdx;
+ 
+inline uint64_t decrypt_player_eyes(uint64_t v) {
+    uint32_t* p = (uint32_t*)&v;
+    for (int i = 0; i < 2; ++i, ++p) {
+        uint32_t x = *p;
+        x += 0x7FA5E00Cu;
+        x = (x << 13) | (x >> 19);
+        x ^= 0xC394A966u;
+        x = (x << 21) | (x >> 11);
+        *p = x;
     }
-    return rax;
+    return v;
+}
+ 
+inline uint32_t encrypt_fov(uint32_t plain) {
+    plain += 0x07653076u;
+    plain = (plain >> 30) | (plain << 2);
+    plain -= 0x47991A80u;
+    plain = (plain >> 4) | (plain << 28);
+    return plain;
 }
