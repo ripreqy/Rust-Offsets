@@ -2,9 +2,9 @@ inline uint64_t decrypt_bn0(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x ^= 0x1D967507u;
-        x = (x << 8) | (x >> 24);
-        x -= 0x42DC34A6u;
+        x = (x << 29) | (x >> 3);
+        x ^= 0x52079D6Bu;
+        x -= 0x067894B2u;
         *p = x;
     }
     return v;
@@ -14,9 +14,9 @@ inline uint64_t decrypt_bn1(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x += 0x43A97588u;
-        x = (x << 11) | (x >> 21);
-        x ^= 0xEDBCB0B2u;
+        x = (x << 8) | (x >> 24);
+        x ^= 0x86EB57BFu;
+        x = (x << 21) | (x >> 11);
         *p = x;
     }
     return v;
@@ -26,9 +26,9 @@ inline uint64_t decrypt_cl_active_item(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x += 0x0A0EFB54u;
-        x = (x << 12) | (x >> 20);
-        x ^= 0x7F547310u;
+        x += 0x0F6EEED0u;
+        x = (x >> 2) | (x << 30);
+        x ^= 0x8FD7480Au;
         *p = x;
     }
     return v;
@@ -38,9 +38,10 @@ inline uint64_t decrypt_player_inventory(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x ^= 0xCA964D04u;
-        x = (x << 31) | (x >> 1);
-        x -= 0x3F430ACEu;
+        x = (x >> 6) | (x << 26);
+        x += 0x9DD71130u;
+        x = (x << 16) | (x >> 16);
+        x ^= 0xC53A1FDDu;
         *p = x;
     }
     return v;
@@ -57,12 +58,4 @@ inline uint64_t decrypt_player_eyes(uint64_t v) {
         *p = x;
     }
     return v;
-}
- 
-inline uint32_t encrypt_fov(uint32_t plain) {
-    plain += 0x07653076u;
-    plain = (plain >> 30) | (plain << 2);
-    plain -= 0x47991A80u;
-    plain = (plain >> 4) | (plain << 28);
-    return plain;
 }
