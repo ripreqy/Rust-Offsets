@@ -1,47 +1,30 @@
 namespace klass_rvas {
-    constexpr uintptr_t BaseNetworkable  = 0x111A9F78;
-    constexpr uintptr_t BaseEntity       = 0x111960A8;
-    constexpr uintptr_t BaseCombatEntity = 0x111919F8;
-    constexpr uintptr_t BasePlayer       = 0x111918A0;
-    constexpr uintptr_t BaseVehicle      = 0x11192E68;
-    constexpr uintptr_t BaseMountable    = 0x111CFA88;
-    constexpr uintptr_t BaseCorpse       = 0x1125B810;
-    constexpr uintptr_t DroppedItem      = 0x1110D798;
-    constexpr uintptr_t OreResource      = 0x111A2A48;
-    constexpr uintptr_t Collectible      = 0x11259F20;
-    constexpr uintptr_t BuildingBlock    = 0x111D8310;
-    constexpr uintptr_t BuildingPriv     = 0x1119B158;
-    constexpr uintptr_t Door             = 0x112602A8;
-    constexpr uintptr_t StorageContainer = 0x11258B10;
-    constexpr uintptr_t WorldItem        = 0x111AF278;
-    constexpr uintptr_t MainCamera       = 0x1118A008;
-    constexpr uintptr_t PlayerEyes       = 0x111AF370;
-    constexpr uintptr_t PlayerInventory  = 0x1123C170;
-    constexpr uintptr_t PlayerInput      = 0x1112DDF0;
-    constexpr uintptr_t TOD_Sky          = 0x111D2EA8;
-    constexpr uintptr_t TerrainMeta      = 0x111852E8;
-    constexpr uintptr_t BaseProjectile   = 0x1115B948;
-    constexpr uintptr_t BaseMelee        = 0x1112BFA0;
-    constexpr uintptr_t AttackEntity     = 0x1111CE80;
-    constexpr uintptr_t HeldEntity       = 0x1117D4A8;
-    constexpr uintptr_t LocalPlayer      = 0x111CE9F8;
-    constexpr uintptr_t get_LocalPlayer  = 0x329BCE0;
+    constexpr uintptr_t BaseNetworkable  = 0x111038C0;
+    constexpr uintptr_t MainCamera       = 0x110E1178;
+    constexpr uintptr_t TOD_Sky          = 0x110DC5D8;
+    constexpr uintptr_t BaseProjectile   = 0x111536E8;
+    constexpr uintptr_t ConVar_Graphics  = 0x110E4428;
+    constexpr uintptr_t LocalPlayer_slot = 0x10BAE2B8;
+    constexpr uintptr_t Projectile_slot  = 0x10BBD5B0;
 }
  
 namespace bn_chain {
     constexpr uintptr_t static_fields     = 0xB8;
-    constexpr uintptr_t wrapper_class_ptr = 0x30;
+    constexpr uintptr_t wrapper_class_ptr = 0x38;
     constexpr uintptr_t wrapper_flag      = 0x14;
     constexpr uintptr_t wrapper_enc       = 0x18;
+    constexpr uintptr_t entities          = 0x38;
     constexpr uintptr_t dict_in_realm     = 0x18;
-    constexpr uintptr_t dict_values       = 0x10;
+    constexpr uintptr_t dict_values       = 0x18;
     constexpr uintptr_t bufferlist_items  = 0x10;
     constexpr uintptr_t bufferlist_count  = 0x18;
     constexpr uintptr_t arr_data          = 0x20;
 }
  
 namespace camera {
-    constexpr uintptr_t sfd_instance     = 0x38;
+    constexpr uintptr_t static_base_rva  = 0x110E1178;
+    constexpr uintptr_t static_fields    = 0xB8;
+    constexpr uintptr_t object_offset    = 0xA8;
     constexpr uintptr_t native_offset    = 0x10;
     constexpr uintptr_t viewMatrix       = 0x2FC;
     constexpr uintptr_t projectionMatrix = 0x748;
@@ -54,14 +37,13 @@ namespace camera {
 }
  
 namespace base_networkable {
+    constexpr uintptr_t hv_offset       = 0x18;
     constexpr uintptr_t net             = 0x18;
     constexpr uintptr_t parentEntity    = 0x38;
     constexpr uintptr_t prefabID        = 0x54;
     constexpr uintptr_t globalBroadcast = 0x58;
     constexpr uintptr_t networkRange    = 0x64;
-    constexpr uintptr_t prefabName      = 0x68;
     constexpr uintptr_t children        = 0x88;
-    constexpr uintptr_t transformHandle = 0x90;
 }
  
 namespace base_entity {
@@ -87,27 +69,29 @@ namespace base_player {
     constexpr uintptr_t currentGesture   = 0x318;
     constexpr uintptr_t modelState       = 0x340;
     constexpr uintptr_t currentTeam      = 0x368;
-    constexpr uintptr_t player_input     = 0x3C0;
+    constexpr uintptr_t waterBody        = 0x3B0;
+    constexpr uintptr_t Belt             = 0x3C0;
     constexpr uintptr_t blueprints       = 0x3C8;
     constexpr uintptr_t gestureViewModel = 0x438;
-    constexpr uintptr_t eyes             = 0x4A0;
+    constexpr uintptr_t player_input     = 0x4B8;
     constexpr uintptr_t isRagdolled      = 0x510;
-    constexpr uintptr_t inventory        = 0x540;
+    constexpr uintptr_t inventory        = 0x518;
+    constexpr uintptr_t UserIDString     = 0x528;
     constexpr uintptr_t movement         = 0x548;
     constexpr uintptr_t clActiveItem     = 0x590;
     constexpr uintptr_t _lookingAtEntity = 0x5A8;
     constexpr uintptr_t modifiers        = 0x5D0;
     constexpr uintptr_t held_entity      = 0x5E0;
     constexpr uintptr_t mounted          = 0x5E8;
-    constexpr uintptr_t playerModel      = 0x620;
+    constexpr uintptr_t eyes             = 0x620;
     constexpr uintptr_t lastSentTick     = 0x638;
     constexpr uintptr_t metabolism       = 0x658;
     constexpr uintptr_t lastSentTickTime = 0x6A0;
     constexpr uintptr_t voiceSpeaker     = 0x6B0;
     constexpr uintptr_t playerFlags      = 0x6E0;
     constexpr uintptr_t hitboxCollision  = 0x6F0;
-    constexpr uintptr_t UserIDString     = 0x708;
-    constexpr uintptr_t _displayName     = 0x738;
+    constexpr uintptr_t _displayName     = 0x720;
+    constexpr uintptr_t playerModel      = 0x7E8;
     constexpr uintptr_t _lookingAt       = 0x7B8;
 }
  
@@ -136,49 +120,117 @@ namespace player_model {
     constexpr uintptr_t velocity       = 0x494;
     constexpr uintptr_t newVelocity    = 0x4AC;
     constexpr uintptr_t rotation       = 0x4B8;
+    constexpr uintptr_t isLocalPlayer  = 0x4DC;
     constexpr uintptr_t _multiMesh     = 0x520;
 }
  
 namespace player_inventory {
-    constexpr uintptr_t containerBelt = 0x38;
     constexpr uintptr_t crafting      = 0x40;
     constexpr uintptr_t loot          = 0x48;
+    constexpr uintptr_t containerBelt = 0x58;
     constexpr uintptr_t containerMain = 0x60;
     constexpr uintptr_t containerWear = 0x78;
 }
  
 namespace item_container {
-    constexpr uintptr_t itemList    = 0x20;
-    constexpr uintptr_t playerOwner = 0x28;
-    constexpr uintptr_t entityOwner = 0x30;
-    constexpr uintptr_t itemCount   = 0x38;
+    constexpr uintptr_t itemCount   = 0x30;
     constexpr uintptr_t flags       = 0x48;
-    constexpr uintptr_t uid         = 0x50;
+    constexpr uintptr_t playerOwner = 0x58;
+    constexpr uintptr_t entityOwner = 0x60;
+    constexpr uintptr_t itemList    = 0x68;
+    constexpr uintptr_t uid         = 0x70;
     constexpr uintptr_t capacity    = 0x7C;
 }
  
 namespace item {
+    constexpr uintptr_t worldEnt      = 0x28;
     constexpr uintptr_t position      = 0x50;
-    constexpr uintptr_t info          = 0x58;
-    constexpr uintptr_t parent        = 0x60;
-    constexpr uintptr_t _condition    = 0x28;
-    constexpr uintptr_t _maxCondition = 0x28;
+    constexpr uintptr_t parent        = 0x70;
+    constexpr uintptr_t amount        = 0x80;
+    constexpr uintptr_t info          = 0x88;
+    constexpr uintptr_t uid           = 0x98;
     constexpr uintptr_t contents      = 0xA0;
-    constexpr uintptr_t heldEntity    = 0xB0;
-    constexpr uintptr_t uid           = 0xC0;
-    constexpr uintptr_t amount        = 0xD4;
+    constexpr uintptr_t heldEntity    = 0xA8;
+    constexpr uintptr_t _condition    = 0xE0;
+    constexpr uintptr_t _maxCondition = 0xE8;
 }
  
 namespace item_definition {
     constexpr uintptr_t itemid      = 0x20;
     constexpr uintptr_t shortname   = 0x28;
+    constexpr uintptr_t iconSprite  = 0x50;
     constexpr uintptr_t displayName = 0x40;
     constexpr uintptr_t category    = 0x58;
+    constexpr uintptr_t stackable   = 0x78;
+    constexpr uintptr_t rarity      = 0x94;
+    constexpr uintptr_t condition   = 0xB8;
+}
+ 
+namespace base_projectile {
+    constexpr uintptr_t automatic              = 0x3A0;
+    constexpr uintptr_t projectileVelocityScale= 0x39C;
+    constexpr uintptr_t nextAttackTime         = 0x348;
+    constexpr uintptr_t reloadTime             = 0x3E0;
+    constexpr uintptr_t primaryMagazine        = 0x3E8;
+    constexpr uintptr_t fractionalReload       = 0x3F0;
+    constexpr uintptr_t reloadStartDuration    = 0x3F4;
+    constexpr uintptr_t reloadFractionDuration = 0x3F8;
+    constexpr uintptr_t reloadEndDuration      = 0x3FC;
+    constexpr uintptr_t aimSway                = 0x408;
+    constexpr uintptr_t aimSwaySpeed           = 0x40C;
+    constexpr uintptr_t recoilProperties       = 0x410;
+    constexpr uintptr_t aimCone                = 0x420;
+    constexpr uintptr_t hipAimCone             = 0x424;
+    constexpr uintptr_t aimconePenaltyPerShot  = 0x428;
+    constexpr uintptr_t aimConePenaltyMax      = 0x42C;
+    constexpr uintptr_t stancePenaltyScale     = 0x438;
+    constexpr uintptr_t isBurstWeapon          = 0x447;
+    constexpr uintptr_t canChangeFireModes     = 0x448;
+    constexpr uintptr_t numShotsFired          = 0x45C;
+    constexpr uintptr_t nextReloadTime         = 0x460;
+    constexpr uintptr_t startReloadTime        = 0x468;
+    constexpr uintptr_t stancePenalty          = 0x470;
+    constexpr uintptr_t aimconePenalty         = 0x474;
+    constexpr uintptr_t sightAimConeScale      = 0x474;
+    constexpr uintptr_t hipAimConeScale        = 0x47C;
+    constexpr uintptr_t isReloading            = 0x48C;
+    constexpr uintptr_t currentBurst           = 0x4C0;
+}
+ 
+namespace recoil_properties {
+    constexpr uintptr_t recoilYawMin             = 0x18;
+    constexpr uintptr_t recoilYawMax             = 0x1C;
+    constexpr uintptr_t recoilPitchMin           = 0x20;
+    constexpr uintptr_t recoilPitchMax           = 0x24;
+    constexpr uintptr_t useCurves                = 0x50;
+    constexpr uintptr_t overrideAimconeWithCurve = 0x5C;
+    constexpr uintptr_t newRecoilOverride        = 0x80;
+}
+ 
+namespace held_entity {
+    constexpr uintptr_t punchAdded      = 0x208;
+    constexpr uintptr_t hideViewmodel   = 0x240;
+    constexpr uintptr_t viewModel       = 0x250;
+    constexpr uintptr_t viewModel_inner = 0x28;
+    constexpr uintptr_t handBone        = 0x268;
+    constexpr uintptr_t holdInfo        = 0x270;
+    constexpr uintptr_t ownerItemUID    = 0x2E0;
+    constexpr uintptr_t primaryMagazine = 0x3E8;
+}
+ 
+namespace base_view_model {
+    constexpr uintptr_t useViewModelCamera = 0x40;
+    constexpr uintptr_t model              = 0x98;
+    constexpr uintptr_t animator           = 0xA0;
+    constexpr uintptr_t viewmodelSway      = 0xA8;
+    constexpr uintptr_t ironSights         = 0xC8;
+    constexpr uintptr_t viewmodelBob       = 0xE0;
+    constexpr uintptr_t viewmodelLower     = 0x100;
 }
  
 namespace chams {
-    constexpr uintptr_t PlayerModel_MultiMesh  = 0xB0;
-    constexpr uintptr_t MultiMesh_RendererList = 0x58;
+    constexpr uintptr_t PlayerModel_MultiMesh  = 0x678;
+    constexpr uintptr_t MultiMesh_RendererList = 0x50;
     constexpr uintptr_t Renderer_UnityObj      = 0x10;
     constexpr uintptr_t Renderer_MaterialArray = 0x140;
     constexpr uintptr_t Renderer_MaterialCount = 0x150;
@@ -188,8 +240,9 @@ namespace chams {
 }
  
 namespace tod_sky_static {
+    constexpr uintptr_t klass_rva      = 0x110DC5D8;
     constexpr uintptr_t static_fields  = 0xB8;
-    constexpr uintptr_t instance_field = 0x50;
+    constexpr uintptr_t instance_field = 0x98;
 }
  
 namespace tod_sky {
@@ -197,6 +250,7 @@ namespace tod_sky {
     constexpr uint32_t Atmosphere = 0x50;
     constexpr uint32_t Day        = 0x58;
     constexpr uint32_t Night      = 0x60;
+    constexpr uint32_t Sun        = 0x68;
     constexpr uint32_t Stars      = 0x78;
     constexpr uint32_t Clouds     = 0x80;
     constexpr uint32_t Ambient    = 0x98;
