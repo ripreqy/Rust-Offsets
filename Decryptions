@@ -2,9 +2,9 @@ inline uint64_t decrypt_bn0(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x = (x << 29) | (x >> 3);
-        x ^= 0x52079D6Bu;
-        x -= 0x067894B2u;
+        x = (x << 4) | (x >> 28);
+        x += 0x7C1CDD1Du;
+        x = (x << 27) | (x >> 5);
         *p = x;
     }
     return v;
@@ -14,9 +14,10 @@ inline uint64_t decrypt_bn1(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x = (x << 8) | (x >> 24);
-        x ^= 0x86EB57BFu;
-        x = (x << 21) | (x >> 11);
+        x -= 0x5EA72894u;
+        x ^= 0xC8B59642u;
+        x = (x << 28) | (x >> 4);
+        x += 0x560FCEE8u;
         *p = x;
     }
     return v;
@@ -26,9 +27,10 @@ inline uint64_t decrypt_cl_active_item(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x += 0x0F6EEED0u;
-        x = (x >> 2) | (x << 30);
-        x ^= 0x8FD7480Au;
+        x = (x << 21) | (x >> 11);
+        x -= 0x3668A27Bu;
+        x ^= 0x25B3E47Bu;
+        x -= 0x74898498u;
         *p = x;
     }
     return v;
@@ -38,10 +40,10 @@ inline uint64_t decrypt_player_inventory(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x = (x >> 6) | (x << 26);
-        x += 0x9DD71130u;
-        x = (x << 16) | (x >> 16);
-        x ^= 0xC53A1FDDu;
+        x = (x << 23) | (x >> 9);
+        x ^= 0x01F73D79u;
+        x += 0x18AB70E6u;
+        x ^= 0x368FF21Au;
         *p = x;
     }
     return v;
@@ -51,10 +53,10 @@ inline uint64_t decrypt_player_eyes(uint64_t v) {
     uint32_t* p = (uint32_t*)&v;
     for (int i = 0; i < 2; ++i, ++p) {
         uint32_t x = *p;
-        x += 0x7FA5E00Cu;
-        x = (x << 13) | (x >> 19);
-        x ^= 0xC394A966u;
-        x = (x << 21) | (x >> 11);
+        x ^= 0x5BFF5766u;
+        x += 0x32C24580u;
+        x = (x << 31) | (x >> 1);
+        x += 0x466EA300u;
         *p = x;
     }
     return v;
